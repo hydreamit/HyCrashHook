@@ -1,0 +1,877 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5185AC9F229BCD3C005C2606 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5185AC9E229BCD3C005C2606 /* Assets.xcassets */; };
+		5185ACA2229BCD3C005C2606 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5185ACA0229BCD3C005C2606 /* LaunchScreen.storyboard */; };
+		5185ACA5229BCD3C005C2606 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185ACA4229BCD3C005C2606 /* main.m */; };
+		5185ACAF229BCD3C005C2606 /* HyCrashHookDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185ACAE229BCD3C005C2606 /* HyCrashHookDemoTests.m */; };
+		5185ACBA229BCD3C005C2606 /* HyCrashHookDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185ACB9229BCD3C005C2606 /* HyCrashHookDemoUITests.m */; };
+		5185ACCF229BCDE4005C2606 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185ACC8229BCDE4005C2606 /* AppDelegate.m */; };
+		5185ACD0229BCDE4005C2606 /* HyTestCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185ACCA229BCDE4005C2606 /* HyTestCollectionViewCell.m */; };
+		5185ACD1229BCDE4005C2606 /* HyTestCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185ACCC229BCDE4005C2606 /* HyTestCollectionViewLayout.m */; };
+		5185ACD2229BCDE4005C2606 /* HyTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185ACCE229BCDE4005C2606 /* HyTestViewController.m */; };
+		5185ACD5229BCDEF005C2606 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5185ACD3229BCDEF005C2606 /* Main.storyboard */; };
+		5185AD06229BCE08005C2606 /* NSDecimalNumber+CrashHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185ACD9229BCE07005C2606 /* NSDecimalNumber+CrashHook.m */; };
+		5185AD07229BCE08005C2606 /* NSOrderedSet+CrashHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185ACDA229BCE07005C2606 /* NSOrderedSet+CrashHook.m */; };
+		5185AD08229BCE08005C2606 /* NSAttributedString+CrashHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185ACDB229BCE07005C2606 /* NSAttributedString+CrashHook.m */; };
+		5185AD09229BCE08005C2606 /* NSMutableAttributedString+CrashHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185ACDC229BCE07005C2606 /* NSMutableAttributedString+CrashHook.m */; };
+		5185AD0A229BCE08005C2606 /* NSArray+CrashHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185ACDE229BCE07005C2606 /* NSArray+CrashHook.m */; };
+		5185AD0B229BCE08005C2606 /* NSData+CrashHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185ACE1229BCE07005C2606 /* NSData+CrashHook.m */; };
+		5185AD0C229BCE08005C2606 /* NSMutableSet+CrashHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185ACE8229BCE07005C2606 /* NSMutableSet+CrashHook.m */; };
+		5185AD0D229BCE08005C2606 /* NSMutableDictionary+CrashHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185ACEA229BCE07005C2606 /* NSMutableDictionary+CrashHook.m */; };
+		5185AD0E229BCE08005C2606 /* NSObject+CrashHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185ACEC229BCE07005C2606 /* NSObject+CrashHook.m */; };
+		5185AD0F229BCE08005C2606 /* NSDictionary+CrashHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185ACF1229BCE07005C2606 /* NSDictionary+CrashHook.m */; };
+		5185AD10229BCE08005C2606 /* NSMutableArray+CrashHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185ACF2229BCE07005C2606 /* NSMutableArray+CrashHook.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		5185AD11229BCE08005C2606 /* NSString+CrashHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185ACF4229BCE07005C2606 /* NSString+CrashHook.m */; };
+		5185AD12229BCE08005C2606 /* NSTimer+CrashHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185ACF5229BCE07005C2606 /* NSTimer+CrashHook.m */; };
+		5185AD13229BCE08005C2606 /* CADisplayLink+CrashHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185ACF7229BCE07005C2606 /* CADisplayLink+CrashHook.m */; };
+		5185AD14229BCE08005C2606 /* NSSet+CrashHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185ACF8229BCE07005C2606 /* NSSet+CrashHook.m */; };
+		5185AD15229BCE08005C2606 /* NSMutableString+CrashHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185ACF9229BCE07005C2606 /* NSMutableString+CrashHook.m */; };
+		5185AD16229BCE08005C2606 /* NSCache+CrashHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185ACFA229BCE07005C2606 /* NSCache+CrashHook.m */; };
+		5185AD17229BCE08005C2606 /* NSMutableOrderedSet+CrashHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185ACFB229BCE07005C2606 /* NSMutableOrderedSet+CrashHook.m */; };
+		5185AD18229BCE08005C2606 /* NSNotificationCenter+CrashHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185ACFD229BCE07005C2606 /* NSNotificationCenter+CrashHook.m */; };
+		5185AD19229BCE08005C2606 /* NSUserDefaults+CrashHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185ACFF229BCE07005C2606 /* NSUserDefaults+CrashHook.m */; };
+		5185AD1A229BCE08005C2606 /* HyCrashHookMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185AD00229BCE07005C2606 /* HyCrashHookMethods.m */; };
+		5185AD1B229BCE08005C2606 /* HyCrashHookLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185AD03229BCE07005C2606 /* HyCrashHookLogger.m */; };
+		5185AD1C229BCE08005C2606 /* HyCrashHookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185AD05229BCE07005C2606 /* HyCrashHookManager.m */; };
+		5185AD46229BCE9B005C2606 /* NSNotificationCenter_CrashHookTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185AD1E229BCE9B005C2606 /* NSNotificationCenter_CrashHookTestController.m */; };
+		5185AD47229BCE9B005C2606 /* NSDecimalNumber_CrashHookTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185AD1F229BCE9B005C2606 /* NSDecimalNumber_CrashHookTestController.m */; };
+		5185AD48229BCE9B005C2606 /* NSArray_CrashHookTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185AD20229BCE9B005C2606 /* NSArray_CrashHookTestController.m */; };
+		5185AD49229BCE9B005C2606 /* NSMutableArray_CrashHookTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185AD22229BCE9B005C2606 /* NSMutableArray_CrashHookTestController.m */; };
+		5185AD4A229BCE9B005C2606 /* NSString_CrashHookTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185AD23229BCE9B005C2606 /* NSString_CrashHookTestController.m */; };
+		5185AD4B229BCE9B005C2606 /* NSOrderedSet_CrashHookTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185AD26229BCE9B005C2606 /* NSOrderedSet_CrashHookTestController.m */; };
+		5185AD4C229BCE9B005C2606 /* NSCache_CrashHookTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185AD28229BCE9B005C2606 /* NSCache_CrashHookTestController.m */; };
+		5185AD4D229BCE9B005C2606 /* NSMutableSet_CrashHookTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185AD2C229BCE9B005C2606 /* NSMutableSet_CrashHookTestController.m */; };
+		5185AD4E229BCE9B005C2606 /* NSTimer_CrashHookTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185AD2D229BCE9B005C2606 /* NSTimer_CrashHookTestController.m */; };
+		5185AD4F229BCE9B005C2606 /* NSMutableAttributedString_CrashHookTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185AD2F229BCE9B005C2606 /* NSMutableAttributedString_CrashHookTestController.m */; };
+		5185AD50229BCE9B005C2606 /* NSDictionary_CrashHookTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185AD31229BCE9B005C2606 /* NSDictionary_CrashHookTestController.m */; };
+		5185AD51229BCE9B005C2606 /* NSSet_CrashHookTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185AD34229BCE9B005C2606 /* NSSet_CrashHookTestController.m */; };
+		5185AD52229BCE9B005C2606 /* NSMutableString_CrashHookTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185AD39229BCE9B005C2606 /* NSMutableString_CrashHookTestController.m */; };
+		5185AD53229BCE9B005C2606 /* NSAttributedString_CrashHookTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185AD3A229BCE9B005C2606 /* NSAttributedString_CrashHookTestController.m */; };
+		5185AD54229BCE9B005C2606 /* NSMutableOrderedSet_CrashHookTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185AD3C229BCE9B005C2606 /* NSMutableOrderedSet_CrashHookTestController.m */; };
+		5185AD55229BCE9B005C2606 /* NSData_CrashHookTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185AD3D229BCE9B005C2606 /* NSData_CrashHookTestController.m */; };
+		5185AD56229BCE9B005C2606 /* CADisplayLink_CrashHookTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185AD3E229BCE9B005C2606 /* CADisplayLink_CrashHookTestController.m */; };
+		5185AD57229BCE9B005C2606 /* NSUserDefaults_CrashHookTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185AD40229BCE9B005C2606 /* NSUserDefaults_CrashHookTestController.m */; };
+		5185AD58229BCE9B005C2606 /* NSObject_CrashHookTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185AD43229BCE9B005C2606 /* NSObject_CrashHookTestController.m */; };
+		5185AD59229BCE9B005C2606 /* NSMutableDictionary_CrashHookTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185AD45229BCE9B005C2606 /* NSMutableDictionary_CrashHookTestController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5185ACAB229BCD3C005C2606 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5185AC8A229BCD3B005C2606 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5185AC91229BCD3B005C2606;
+			remoteInfo = HyCrashHookDemo;
+		};
+		5185ACB6229BCD3C005C2606 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5185AC8A229BCD3B005C2606 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5185AC91229BCD3B005C2606;
+			remoteInfo = HyCrashHookDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5185AC92229BCD3B005C2606 /* HyCrashHookDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HyCrashHookDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5185AC9E229BCD3C005C2606 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5185ACA1229BCD3C005C2606 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5185ACA3229BCD3C005C2606 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5185ACA4229BCD3C005C2606 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5185ACAA229BCD3C005C2606 /* HyCrashHookDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HyCrashHookDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5185ACAE229BCD3C005C2606 /* HyCrashHookDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HyCrashHookDemoTests.m; sourceTree = "<group>"; };
+		5185ACB0229BCD3C005C2606 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5185ACB5229BCD3C005C2606 /* HyCrashHookDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HyCrashHookDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5185ACB9229BCD3C005C2606 /* HyCrashHookDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HyCrashHookDemoUITests.m; sourceTree = "<group>"; };
+		5185ACBB229BCD3C005C2606 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5185ACC7229BCDE4005C2606 /* HyTestCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HyTestCollectionViewLayout.h; sourceTree = "<group>"; };
+		5185ACC8229BCDE4005C2606 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		5185ACC9229BCDE4005C2606 /* HyTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HyTestViewController.h; sourceTree = "<group>"; };
+		5185ACCA229BCDE4005C2606 /* HyTestCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HyTestCollectionViewCell.m; sourceTree = "<group>"; };
+		5185ACCB229BCDE4005C2606 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		5185ACCC229BCDE4005C2606 /* HyTestCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HyTestCollectionViewLayout.m; sourceTree = "<group>"; };
+		5185ACCD229BCDE4005C2606 /* HyTestCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HyTestCollectionViewCell.h; sourceTree = "<group>"; };
+		5185ACCE229BCDE4005C2606 /* HyTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HyTestViewController.m; sourceTree = "<group>"; };
+		5185ACD4229BCDEF005C2606 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5185ACD8229BCE07005C2606 /* NSDictionary+CrashHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+CrashHook.h"; sourceTree = "<group>"; };
+		5185ACD9229BCE07005C2606 /* NSDecimalNumber+CrashHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDecimalNumber+CrashHook.m"; sourceTree = "<group>"; };
+		5185ACDA229BCE07005C2606 /* NSOrderedSet+CrashHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOrderedSet+CrashHook.m"; sourceTree = "<group>"; };
+		5185ACDB229BCE07005C2606 /* NSAttributedString+CrashHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+CrashHook.m"; sourceTree = "<group>"; };
+		5185ACDC229BCE07005C2606 /* NSMutableAttributedString+CrashHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+CrashHook.m"; sourceTree = "<group>"; };
+		5185ACDD229BCE07005C2606 /* NSObject+CrashHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+CrashHook.h"; sourceTree = "<group>"; };
+		5185ACDE229BCE07005C2606 /* NSArray+CrashHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+CrashHook.m"; sourceTree = "<group>"; };
+		5185ACDF229BCE07005C2606 /* NSTimer+CrashHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+CrashHook.h"; sourceTree = "<group>"; };
+		5185ACE0229BCE07005C2606 /* NSString+CrashHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CrashHook.h"; sourceTree = "<group>"; };
+		5185ACE1229BCE07005C2606 /* NSData+CrashHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+CrashHook.m"; sourceTree = "<group>"; };
+		5185ACE2229BCE07005C2606 /* NSMutableArray+CrashHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+CrashHook.h"; sourceTree = "<group>"; };
+		5185ACE3229BCE07005C2606 /* NSCache+CrashHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCache+CrashHook.h"; sourceTree = "<group>"; };
+		5185ACE4229BCE07005C2606 /* NSMutableString+CrashHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableString+CrashHook.h"; sourceTree = "<group>"; };
+		5185ACE5229BCE07005C2606 /* NSSet+CrashHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet+CrashHook.h"; sourceTree = "<group>"; };
+		5185ACE6229BCE07005C2606 /* CADisplayLink+CrashHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CADisplayLink+CrashHook.h"; sourceTree = "<group>"; };
+		5185ACE7229BCE07005C2606 /* NSUserDefaults+CrashHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+CrashHook.h"; sourceTree = "<group>"; };
+		5185ACE8229BCE07005C2606 /* NSMutableSet+CrashHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableSet+CrashHook.m"; sourceTree = "<group>"; };
+		5185ACE9229BCE07005C2606 /* NSNotificationCenter+CrashHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+CrashHook.h"; sourceTree = "<group>"; };
+		5185ACEA229BCE07005C2606 /* NSMutableDictionary+CrashHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+CrashHook.m"; sourceTree = "<group>"; };
+		5185ACEB229BCE07005C2606 /* NSMutableOrderedSet+CrashHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableOrderedSet+CrashHook.h"; sourceTree = "<group>"; };
+		5185ACEC229BCE07005C2606 /* NSObject+CrashHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+CrashHook.m"; sourceTree = "<group>"; };
+		5185ACED229BCE07005C2606 /* NSMutableAttributedString+CrashHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+CrashHook.h"; sourceTree = "<group>"; };
+		5185ACEE229BCE07005C2606 /* NSDecimalNumber+CrashHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDecimalNumber+CrashHook.h"; sourceTree = "<group>"; };
+		5185ACEF229BCE07005C2606 /* NSOrderedSet+CrashHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOrderedSet+CrashHook.h"; sourceTree = "<group>"; };
+		5185ACF0229BCE07005C2606 /* NSAttributedString+CrashHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+CrashHook.h"; sourceTree = "<group>"; };
+		5185ACF1229BCE07005C2606 /* NSDictionary+CrashHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+CrashHook.m"; sourceTree = "<group>"; };
+		5185ACF2229BCE07005C2606 /* NSMutableArray+CrashHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+CrashHook.m"; sourceTree = "<group>"; };
+		5185ACF3229BCE07005C2606 /* NSData+CrashHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+CrashHook.h"; sourceTree = "<group>"; };
+		5185ACF4229BCE07005C2606 /* NSString+CrashHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CrashHook.m"; sourceTree = "<group>"; };
+		5185ACF5229BCE07005C2606 /* NSTimer+CrashHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+CrashHook.m"; sourceTree = "<group>"; };
+		5185ACF6229BCE07005C2606 /* NSArray+CrashHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+CrashHook.h"; sourceTree = "<group>"; };
+		5185ACF7229BCE07005C2606 /* CADisplayLink+CrashHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CADisplayLink+CrashHook.m"; sourceTree = "<group>"; };
+		5185ACF8229BCE07005C2606 /* NSSet+CrashHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+CrashHook.m"; sourceTree = "<group>"; };
+		5185ACF9229BCE07005C2606 /* NSMutableString+CrashHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableString+CrashHook.m"; sourceTree = "<group>"; };
+		5185ACFA229BCE07005C2606 /* NSCache+CrashHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCache+CrashHook.m"; sourceTree = "<group>"; };
+		5185ACFB229BCE07005C2606 /* NSMutableOrderedSet+CrashHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableOrderedSet+CrashHook.m"; sourceTree = "<group>"; };
+		5185ACFC229BCE07005C2606 /* NSMutableDictionary+CrashHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+CrashHook.h"; sourceTree = "<group>"; };
+		5185ACFD229BCE07005C2606 /* NSNotificationCenter+CrashHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNotificationCenter+CrashHook.m"; sourceTree = "<group>"; };
+		5185ACFE229BCE07005C2606 /* NSMutableSet+CrashHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableSet+CrashHook.h"; sourceTree = "<group>"; };
+		5185ACFF229BCE07005C2606 /* NSUserDefaults+CrashHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+CrashHook.m"; sourceTree = "<group>"; };
+		5185AD00229BCE07005C2606 /* HyCrashHookMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HyCrashHookMethods.m; sourceTree = "<group>"; };
+		5185AD01229BCE07005C2606 /* HyCrashHookLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HyCrashHookLogger.h; sourceTree = "<group>"; };
+		5185AD02229BCE07005C2606 /* HyCrashHookManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HyCrashHookManager.h; sourceTree = "<group>"; };
+		5185AD03229BCE07005C2606 /* HyCrashHookLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HyCrashHookLogger.m; sourceTree = "<group>"; };
+		5185AD04229BCE07005C2606 /* HyCrashHookMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HyCrashHookMethods.h; sourceTree = "<group>"; };
+		5185AD05229BCE07005C2606 /* HyCrashHookManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HyCrashHookManager.m; sourceTree = "<group>"; };
+		5185AD1E229BCE9B005C2606 /* NSNotificationCenter_CrashHookTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSNotificationCenter_CrashHookTestController.m; sourceTree = "<group>"; };
+		5185AD1F229BCE9B005C2606 /* NSDecimalNumber_CrashHookTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDecimalNumber_CrashHookTestController.m; sourceTree = "<group>"; };
+		5185AD20229BCE9B005C2606 /* NSArray_CrashHookTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSArray_CrashHookTestController.m; sourceTree = "<group>"; };
+		5185AD21229BCE9B005C2606 /* NSSet_CrashHookTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSSet_CrashHookTestController.h; sourceTree = "<group>"; };
+		5185AD22229BCE9B005C2606 /* NSMutableArray_CrashHookTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSMutableArray_CrashHookTestController.m; sourceTree = "<group>"; };
+		5185AD23229BCE9B005C2606 /* NSString_CrashHookTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSString_CrashHookTestController.m; sourceTree = "<group>"; };
+		5185AD24229BCE9B005C2606 /* NSUserDefaults_CrashHookTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSUserDefaults_CrashHookTestController.h; sourceTree = "<group>"; };
+		5185AD25229BCE9B005C2606 /* CADisplayLink_CrashHookTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADisplayLink_CrashHookTestController.h; sourceTree = "<group>"; };
+		5185AD26229BCE9B005C2606 /* NSOrderedSet_CrashHookTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSOrderedSet_CrashHookTestController.m; sourceTree = "<group>"; };
+		5185AD27229BCE9B005C2606 /* NSData_CrashHookTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSData_CrashHookTestController.h; sourceTree = "<group>"; };
+		5185AD28229BCE9B005C2606 /* NSCache_CrashHookTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSCache_CrashHookTestController.m; sourceTree = "<group>"; };
+		5185AD29229BCE9B005C2606 /* NSMutableOrderedSet_CrashHookTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSMutableOrderedSet_CrashHookTestController.h; sourceTree = "<group>"; };
+		5185AD2A229BCE9B005C2606 /* NSMutableString_CrashHookTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSMutableString_CrashHookTestController.h; sourceTree = "<group>"; };
+		5185AD2B229BCE9B005C2606 /* NSAttributedString_CrashHookTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSAttributedString_CrashHookTestController.h; sourceTree = "<group>"; };
+		5185AD2C229BCE9B005C2606 /* NSMutableSet_CrashHookTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSMutableSet_CrashHookTestController.m; sourceTree = "<group>"; };
+		5185AD2D229BCE9B005C2606 /* NSTimer_CrashHookTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSTimer_CrashHookTestController.m; sourceTree = "<group>"; };
+		5185AD2E229BCE9B005C2606 /* NSMutableDictionary_CrashHookTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSMutableDictionary_CrashHookTestController.h; sourceTree = "<group>"; };
+		5185AD2F229BCE9B005C2606 /* NSMutableAttributedString_CrashHookTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSMutableAttributedString_CrashHookTestController.m; sourceTree = "<group>"; };
+		5185AD30229BCE9B005C2606 /* NSObject_CrashHookTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSObject_CrashHookTestController.h; sourceTree = "<group>"; };
+		5185AD31229BCE9B005C2606 /* NSDictionary_CrashHookTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDictionary_CrashHookTestController.m; sourceTree = "<group>"; };
+		5185AD32229BCE9B005C2606 /* NSNotificationCenter_CrashHookTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSNotificationCenter_CrashHookTestController.h; sourceTree = "<group>"; };
+		5185AD33229BCE9B005C2606 /* NSMutableArray_CrashHookTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSMutableArray_CrashHookTestController.h; sourceTree = "<group>"; };
+		5185AD34229BCE9B005C2606 /* NSSet_CrashHookTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSSet_CrashHookTestController.m; sourceTree = "<group>"; };
+		5185AD35229BCE9B005C2606 /* NSArray_CrashHookTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSArray_CrashHookTestController.h; sourceTree = "<group>"; };
+		5185AD36229BCE9B005C2606 /* NSDecimalNumber_CrashHookTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDecimalNumber_CrashHookTestController.h; sourceTree = "<group>"; };
+		5185AD37229BCE9B005C2606 /* NSTimer_CrashHookTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSTimer_CrashHookTestController.h; sourceTree = "<group>"; };
+		5185AD38229BCE9B005C2606 /* NSMutableSet_CrashHookTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSMutableSet_CrashHookTestController.h; sourceTree = "<group>"; };
+		5185AD39229BCE9B005C2606 /* NSMutableString_CrashHookTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSMutableString_CrashHookTestController.m; sourceTree = "<group>"; };
+		5185AD3A229BCE9B005C2606 /* NSAttributedString_CrashHookTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSAttributedString_CrashHookTestController.m; sourceTree = "<group>"; };
+		5185AD3B229BCE9B005C2606 /* NSCache_CrashHookTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSCache_CrashHookTestController.h; sourceTree = "<group>"; };
+		5185AD3C229BCE9B005C2606 /* NSMutableOrderedSet_CrashHookTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSMutableOrderedSet_CrashHookTestController.m; sourceTree = "<group>"; };
+		5185AD3D229BCE9B005C2606 /* NSData_CrashHookTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSData_CrashHookTestController.m; sourceTree = "<group>"; };
+		5185AD3E229BCE9B005C2606 /* CADisplayLink_CrashHookTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CADisplayLink_CrashHookTestController.m; sourceTree = "<group>"; };
+		5185AD3F229BCE9B005C2606 /* NSOrderedSet_CrashHookTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSOrderedSet_CrashHookTestController.h; sourceTree = "<group>"; };
+		5185AD40229BCE9B005C2606 /* NSUserDefaults_CrashHookTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSUserDefaults_CrashHookTestController.m; sourceTree = "<group>"; };
+		5185AD41229BCE9B005C2606 /* NSString_CrashHookTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSString_CrashHookTestController.h; sourceTree = "<group>"; };
+		5185AD42229BCE9B005C2606 /* NSDictionary_CrashHookTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDictionary_CrashHookTestController.h; sourceTree = "<group>"; };
+		5185AD43229BCE9B005C2606 /* NSObject_CrashHookTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSObject_CrashHookTestController.m; sourceTree = "<group>"; };
+		5185AD44229BCE9B005C2606 /* NSMutableAttributedString_CrashHookTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSMutableAttributedString_CrashHookTestController.h; sourceTree = "<group>"; };
+		5185AD45229BCE9B005C2606 /* NSMutableDictionary_CrashHookTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSMutableDictionary_CrashHookTestController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5185AC8F229BCD3B005C2606 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5185ACA7229BCD3C005C2606 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5185ACB2229BCD3C005C2606 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5185AC89229BCD3B005C2606 = {
+			isa = PBXGroup;
+			children = (
+				5185AC94229BCD3B005C2606 /* HyCrashHookDemo */,
+				5185ACAD229BCD3C005C2606 /* HyCrashHookDemoTests */,
+				5185ACB8229BCD3C005C2606 /* HyCrashHookDemoUITests */,
+				5185AC93229BCD3B005C2606 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5185AC93229BCD3B005C2606 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5185AC92229BCD3B005C2606 /* HyCrashHookDemo.app */,
+				5185ACAA229BCD3C005C2606 /* HyCrashHookDemoTests.xctest */,
+				5185ACB5229BCD3C005C2606 /* HyCrashHookDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5185AC94229BCD3B005C2606 /* HyCrashHookDemo */ = {
+			isa = PBXGroup;
+			children = (
+				5185ACD6229BCE07005C2606 /* HyCrashHook */,
+				5185AD1D229BCE9B005C2606 /* Demo */,
+				5185ACCB229BCDE4005C2606 /* AppDelegate.h */,
+				5185ACC8229BCDE4005C2606 /* AppDelegate.m */,
+				5185ACC9229BCDE4005C2606 /* HyTestViewController.h */,
+				5185ACCE229BCDE4005C2606 /* HyTestViewController.m */,
+				5185ACCD229BCDE4005C2606 /* HyTestCollectionViewCell.h */,
+				5185ACCA229BCDE4005C2606 /* HyTestCollectionViewCell.m */,
+				5185ACC7229BCDE4005C2606 /* HyTestCollectionViewLayout.h */,
+				5185ACCC229BCDE4005C2606 /* HyTestCollectionViewLayout.m */,
+				5185ACD3229BCDEF005C2606 /* Main.storyboard */,
+				5185ACA0229BCD3C005C2606 /* LaunchScreen.storyboard */,
+				5185AC9E229BCD3C005C2606 /* Assets.xcassets */,
+				5185ACA3229BCD3C005C2606 /* Info.plist */,
+				5185ACA4229BCD3C005C2606 /* main.m */,
+			);
+			path = HyCrashHookDemo;
+			sourceTree = "<group>";
+		};
+		5185ACAD229BCD3C005C2606 /* HyCrashHookDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				5185ACAE229BCD3C005C2606 /* HyCrashHookDemoTests.m */,
+				5185ACB0229BCD3C005C2606 /* Info.plist */,
+			);
+			path = HyCrashHookDemoTests;
+			sourceTree = "<group>";
+		};
+		5185ACB8229BCD3C005C2606 /* HyCrashHookDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5185ACB9229BCD3C005C2606 /* HyCrashHookDemoUITests.m */,
+				5185ACBB229BCD3C005C2606 /* Info.plist */,
+			);
+			path = HyCrashHookDemoUITests;
+			sourceTree = "<group>";
+		};
+		5185ACD6229BCE07005C2606 /* HyCrashHook */ = {
+			isa = PBXGroup;
+			children = (
+				5185ACD7229BCE07005C2606 /* Category */,
+				5185AD02229BCE07005C2606 /* HyCrashHookManager.h */,
+				5185AD00229BCE07005C2606 /* HyCrashHookMethods.m */,
+				5185AD04229BCE07005C2606 /* HyCrashHookMethods.h */,
+				5185AD05229BCE07005C2606 /* HyCrashHookManager.m */,
+				5185AD01229BCE07005C2606 /* HyCrashHookLogger.h */,
+				5185AD03229BCE07005C2606 /* HyCrashHookLogger.m */,
+			);
+			name = HyCrashHook;
+			path = ../../HyCrashHook;
+			sourceTree = "<group>";
+		};
+		5185ACD7229BCE07005C2606 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				5185ACDD229BCE07005C2606 /* NSObject+CrashHook.h */,
+				5185ACEC229BCE07005C2606 /* NSObject+CrashHook.m */,
+				5185ACF6229BCE07005C2606 /* NSArray+CrashHook.h */,
+				5185ACDE229BCE07005C2606 /* NSArray+CrashHook.m */,
+				5185ACE2229BCE07005C2606 /* NSMutableArray+CrashHook.h */,
+				5185ACF2229BCE07005C2606 /* NSMutableArray+CrashHook.m */,
+				5185ACD8229BCE07005C2606 /* NSDictionary+CrashHook.h */,
+				5185ACF1229BCE07005C2606 /* NSDictionary+CrashHook.m */,
+				5185ACFC229BCE07005C2606 /* NSMutableDictionary+CrashHook.h */,
+				5185ACEA229BCE07005C2606 /* NSMutableDictionary+CrashHook.m */,
+				5185ACE0229BCE07005C2606 /* NSString+CrashHook.h */,
+				5185ACF4229BCE07005C2606 /* NSString+CrashHook.m */,
+				5185ACE4229BCE07005C2606 /* NSMutableString+CrashHook.h */,
+				5185ACF9229BCE07005C2606 /* NSMutableString+CrashHook.m */,
+				5185ACF0229BCE07005C2606 /* NSAttributedString+CrashHook.h */,
+				5185ACDB229BCE07005C2606 /* NSAttributedString+CrashHook.m */,
+				5185ACED229BCE07005C2606 /* NSMutableAttributedString+CrashHook.h */,
+				5185ACDC229BCE07005C2606 /* NSMutableAttributedString+CrashHook.m */,
+				5185ACE5229BCE07005C2606 /* NSSet+CrashHook.h */,
+				5185ACF8229BCE07005C2606 /* NSSet+CrashHook.m */,
+				5185ACFE229BCE07005C2606 /* NSMutableSet+CrashHook.h */,
+				5185ACE8229BCE07005C2606 /* NSMutableSet+CrashHook.m */,
+				5185ACEF229BCE07005C2606 /* NSOrderedSet+CrashHook.h */,
+				5185ACDA229BCE07005C2606 /* NSOrderedSet+CrashHook.m */,
+				5185ACEB229BCE07005C2606 /* NSMutableOrderedSet+CrashHook.h */,
+				5185ACFB229BCE07005C2606 /* NSMutableOrderedSet+CrashHook.m */,
+				5185ACE9229BCE07005C2606 /* NSNotificationCenter+CrashHook.h */,
+				5185ACFD229BCE07005C2606 /* NSNotificationCenter+CrashHook.m */,
+				5185ACEE229BCE07005C2606 /* NSDecimalNumber+CrashHook.h */,
+				5185ACD9229BCE07005C2606 /* NSDecimalNumber+CrashHook.m */,
+				5185ACE7229BCE07005C2606 /* NSUserDefaults+CrashHook.h */,
+				5185ACFF229BCE07005C2606 /* NSUserDefaults+CrashHook.m */,
+				5185ACE6229BCE07005C2606 /* CADisplayLink+CrashHook.h */,
+				5185ACF7229BCE07005C2606 /* CADisplayLink+CrashHook.m */,
+				5185ACDF229BCE07005C2606 /* NSTimer+CrashHook.h */,
+				5185ACF5229BCE07005C2606 /* NSTimer+CrashHook.m */,
+				5185ACE3229BCE07005C2606 /* NSCache+CrashHook.h */,
+				5185ACFA229BCE07005C2606 /* NSCache+CrashHook.m */,
+				5185ACF3229BCE07005C2606 /* NSData+CrashHook.h */,
+				5185ACE1229BCE07005C2606 /* NSData+CrashHook.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		5185AD1D229BCE9B005C2606 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				5185AD30229BCE9B005C2606 /* NSObject_CrashHookTestController.h */,
+				5185AD43229BCE9B005C2606 /* NSObject_CrashHookTestController.m */,
+				5185AD35229BCE9B005C2606 /* NSArray_CrashHookTestController.h */,
+				5185AD20229BCE9B005C2606 /* NSArray_CrashHookTestController.m */,
+				5185AD33229BCE9B005C2606 /* NSMutableArray_CrashHookTestController.h */,
+				5185AD22229BCE9B005C2606 /* NSMutableArray_CrashHookTestController.m */,
+				5185AD42229BCE9B005C2606 /* NSDictionary_CrashHookTestController.h */,
+				5185AD31229BCE9B005C2606 /* NSDictionary_CrashHookTestController.m */,
+				5185AD2E229BCE9B005C2606 /* NSMutableDictionary_CrashHookTestController.h */,
+				5185AD45229BCE9B005C2606 /* NSMutableDictionary_CrashHookTestController.m */,
+				5185AD41229BCE9B005C2606 /* NSString_CrashHookTestController.h */,
+				5185AD23229BCE9B005C2606 /* NSString_CrashHookTestController.m */,
+				5185AD2A229BCE9B005C2606 /* NSMutableString_CrashHookTestController.h */,
+				5185AD39229BCE9B005C2606 /* NSMutableString_CrashHookTestController.m */,
+				5185AD2B229BCE9B005C2606 /* NSAttributedString_CrashHookTestController.h */,
+				5185AD3A229BCE9B005C2606 /* NSAttributedString_CrashHookTestController.m */,
+				5185AD44229BCE9B005C2606 /* NSMutableAttributedString_CrashHookTestController.h */,
+				5185AD2F229BCE9B005C2606 /* NSMutableAttributedString_CrashHookTestController.m */,
+				5185AD21229BCE9B005C2606 /* NSSet_CrashHookTestController.h */,
+				5185AD34229BCE9B005C2606 /* NSSet_CrashHookTestController.m */,
+				5185AD38229BCE9B005C2606 /* NSMutableSet_CrashHookTestController.h */,
+				5185AD2C229BCE9B005C2606 /* NSMutableSet_CrashHookTestController.m */,
+				5185AD3F229BCE9B005C2606 /* NSOrderedSet_CrashHookTestController.h */,
+				5185AD26229BCE9B005C2606 /* NSOrderedSet_CrashHookTestController.m */,
+				5185AD29229BCE9B005C2606 /* NSMutableOrderedSet_CrashHookTestController.h */,
+				5185AD3C229BCE9B005C2606 /* NSMutableOrderedSet_CrashHookTestController.m */,
+				5185AD32229BCE9B005C2606 /* NSNotificationCenter_CrashHookTestController.h */,
+				5185AD1E229BCE9B005C2606 /* NSNotificationCenter_CrashHookTestController.m */,
+				5185AD36229BCE9B005C2606 /* NSDecimalNumber_CrashHookTestController.h */,
+				5185AD1F229BCE9B005C2606 /* NSDecimalNumber_CrashHookTestController.m */,
+				5185AD24229BCE9B005C2606 /* NSUserDefaults_CrashHookTestController.h */,
+				5185AD40229BCE9B005C2606 /* NSUserDefaults_CrashHookTestController.m */,
+				5185AD25229BCE9B005C2606 /* CADisplayLink_CrashHookTestController.h */,
+				5185AD3E229BCE9B005C2606 /* CADisplayLink_CrashHookTestController.m */,
+				5185AD37229BCE9B005C2606 /* NSTimer_CrashHookTestController.h */,
+				5185AD2D229BCE9B005C2606 /* NSTimer_CrashHookTestController.m */,
+				5185AD3B229BCE9B005C2606 /* NSCache_CrashHookTestController.h */,
+				5185AD28229BCE9B005C2606 /* NSCache_CrashHookTestController.m */,
+				5185AD27229BCE9B005C2606 /* NSData_CrashHookTestController.h */,
+				5185AD3D229BCE9B005C2606 /* NSData_CrashHookTestController.m */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5185AC91229BCD3B005C2606 /* HyCrashHookDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5185ACBE229BCD3C005C2606 /* Build configuration list for PBXNativeTarget "HyCrashHookDemo" */;
+			buildPhases = (
+				5185AC8E229BCD3B005C2606 /* Sources */,
+				5185AC8F229BCD3B005C2606 /* Frameworks */,
+				5185AC90229BCD3B005C2606 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HyCrashHookDemo;
+			productName = HyCrashHookDemo;
+			productReference = 5185AC92229BCD3B005C2606 /* HyCrashHookDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5185ACA9229BCD3C005C2606 /* HyCrashHookDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5185ACC1229BCD3C005C2606 /* Build configuration list for PBXNativeTarget "HyCrashHookDemoTests" */;
+			buildPhases = (
+				5185ACA6229BCD3C005C2606 /* Sources */,
+				5185ACA7229BCD3C005C2606 /* Frameworks */,
+				5185ACA8229BCD3C005C2606 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5185ACAC229BCD3C005C2606 /* PBXTargetDependency */,
+			);
+			name = HyCrashHookDemoTests;
+			productName = HyCrashHookDemoTests;
+			productReference = 5185ACAA229BCD3C005C2606 /* HyCrashHookDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5185ACB4229BCD3C005C2606 /* HyCrashHookDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5185ACC4229BCD3C005C2606 /* Build configuration list for PBXNativeTarget "HyCrashHookDemoUITests" */;
+			buildPhases = (
+				5185ACB1229BCD3C005C2606 /* Sources */,
+				5185ACB2229BCD3C005C2606 /* Frameworks */,
+				5185ACB3229BCD3C005C2606 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5185ACB7229BCD3C005C2606 /* PBXTargetDependency */,
+			);
+			name = HyCrashHookDemoUITests;
+			productName = HyCrashHookDemoUITests;
+			productReference = 5185ACB5229BCD3C005C2606 /* HyCrashHookDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5185AC8A229BCD3B005C2606 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = huangyi;
+				TargetAttributes = {
+					5185AC91229BCD3B005C2606 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					5185ACA9229BCD3C005C2606 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 5185AC91229BCD3B005C2606;
+					};
+					5185ACB4229BCD3C005C2606 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 5185AC91229BCD3B005C2606;
+					};
+				};
+			};
+			buildConfigurationList = 5185AC8D229BCD3B005C2606 /* Build configuration list for PBXProject "HyCrashHookDemo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5185AC89229BCD3B005C2606;
+			productRefGroup = 5185AC93229BCD3B005C2606 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5185AC91229BCD3B005C2606 /* HyCrashHookDemo */,
+				5185ACA9229BCD3C005C2606 /* HyCrashHookDemoTests */,
+				5185ACB4229BCD3C005C2606 /* HyCrashHookDemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5185AC90229BCD3B005C2606 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5185ACD5229BCDEF005C2606 /* Main.storyboard in Resources */,
+				5185ACA2229BCD3C005C2606 /* LaunchScreen.storyboard in Resources */,
+				5185AC9F229BCD3C005C2606 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5185ACA8229BCD3C005C2606 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5185ACB3229BCD3C005C2606 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5185AC8E229BCD3B005C2606 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5185AD16229BCE08005C2606 /* NSCache+CrashHook.m in Sources */,
+				5185AD0B229BCE08005C2606 /* NSData+CrashHook.m in Sources */,
+				5185AD55229BCE9B005C2606 /* NSData_CrashHookTestController.m in Sources */,
+				5185AD13229BCE08005C2606 /* CADisplayLink+CrashHook.m in Sources */,
+				5185ACD0229BCDE4005C2606 /* HyTestCollectionViewCell.m in Sources */,
+				5185ACD1229BCDE4005C2606 /* HyTestCollectionViewLayout.m in Sources */,
+				5185AD50229BCE9B005C2606 /* NSDictionary_CrashHookTestController.m in Sources */,
+				5185ACD2229BCDE4005C2606 /* HyTestViewController.m in Sources */,
+				5185AD11229BCE08005C2606 /* NSString+CrashHook.m in Sources */,
+				5185AD58229BCE9B005C2606 /* NSObject_CrashHookTestController.m in Sources */,
+				5185AD4F229BCE9B005C2606 /* NSMutableAttributedString_CrashHookTestController.m in Sources */,
+				5185AD12229BCE08005C2606 /* NSTimer+CrashHook.m in Sources */,
+				5185AD1B229BCE08005C2606 /* HyCrashHookLogger.m in Sources */,
+				5185AD1C229BCE08005C2606 /* HyCrashHookManager.m in Sources */,
+				5185AD59229BCE9B005C2606 /* NSMutableDictionary_CrashHookTestController.m in Sources */,
+				5185AD47229BCE9B005C2606 /* NSDecimalNumber_CrashHookTestController.m in Sources */,
+				5185AD15229BCE08005C2606 /* NSMutableString+CrashHook.m in Sources */,
+				5185AD0E229BCE08005C2606 /* NSObject+CrashHook.m in Sources */,
+				5185AD4A229BCE9B005C2606 /* NSString_CrashHookTestController.m in Sources */,
+				5185AD4E229BCE9B005C2606 /* NSTimer_CrashHookTestController.m in Sources */,
+				5185AD1A229BCE08005C2606 /* HyCrashHookMethods.m in Sources */,
+				5185AD0A229BCE08005C2606 /* NSArray+CrashHook.m in Sources */,
+				5185AD48229BCE9B005C2606 /* NSArray_CrashHookTestController.m in Sources */,
+				5185AD51229BCE9B005C2606 /* NSSet_CrashHookTestController.m in Sources */,
+				5185AD4D229BCE9B005C2606 /* NSMutableSet_CrashHookTestController.m in Sources */,
+				5185ACCF229BCDE4005C2606 /* AppDelegate.m in Sources */,
+				5185AD07229BCE08005C2606 /* NSOrderedSet+CrashHook.m in Sources */,
+				5185AD56229BCE9B005C2606 /* CADisplayLink_CrashHookTestController.m in Sources */,
+				5185AD49229BCE9B005C2606 /* NSMutableArray_CrashHookTestController.m in Sources */,
+				5185AD06229BCE08005C2606 /* NSDecimalNumber+CrashHook.m in Sources */,
+				5185AD57229BCE9B005C2606 /* NSUserDefaults_CrashHookTestController.m in Sources */,
+				5185AD19229BCE08005C2606 /* NSUserDefaults+CrashHook.m in Sources */,
+				5185AD54229BCE9B005C2606 /* NSMutableOrderedSet_CrashHookTestController.m in Sources */,
+				5185AD46229BCE9B005C2606 /* NSNotificationCenter_CrashHookTestController.m in Sources */,
+				5185AD17229BCE08005C2606 /* NSMutableOrderedSet+CrashHook.m in Sources */,
+				5185AD0D229BCE08005C2606 /* NSMutableDictionary+CrashHook.m in Sources */,
+				5185AD53229BCE9B005C2606 /* NSAttributedString_CrashHookTestController.m in Sources */,
+				5185AD08229BCE08005C2606 /* NSAttributedString+CrashHook.m in Sources */,
+				5185AD14229BCE08005C2606 /* NSSet+CrashHook.m in Sources */,
+				5185AD18229BCE08005C2606 /* NSNotificationCenter+CrashHook.m in Sources */,
+				5185AD4B229BCE9B005C2606 /* NSOrderedSet_CrashHookTestController.m in Sources */,
+				5185ACA5229BCD3C005C2606 /* main.m in Sources */,
+				5185AD10229BCE08005C2606 /* NSMutableArray+CrashHook.m in Sources */,
+				5185AD52229BCE9B005C2606 /* NSMutableString_CrashHookTestController.m in Sources */,
+				5185AD4C229BCE9B005C2606 /* NSCache_CrashHookTestController.m in Sources */,
+				5185AD09229BCE08005C2606 /* NSMutableAttributedString+CrashHook.m in Sources */,
+				5185AD0F229BCE08005C2606 /* NSDictionary+CrashHook.m in Sources */,
+				5185AD0C229BCE08005C2606 /* NSMutableSet+CrashHook.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5185ACA6229BCD3C005C2606 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5185ACAF229BCD3C005C2606 /* HyCrashHookDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5185ACB1229BCD3C005C2606 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5185ACBA229BCD3C005C2606 /* HyCrashHookDemoUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5185ACAC229BCD3C005C2606 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5185AC91229BCD3B005C2606 /* HyCrashHookDemo */;
+			targetProxy = 5185ACAB229BCD3C005C2606 /* PBXContainerItemProxy */;
+		};
+		5185ACB7229BCD3C005C2606 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5185AC91229BCD3B005C2606 /* HyCrashHookDemo */;
+			targetProxy = 5185ACB6229BCD3C005C2606 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5185ACA0229BCD3C005C2606 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5185ACA1229BCD3C005C2606 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		5185ACD3229BCDEF005C2606 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5185ACD4229BCDEF005C2606 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5185ACBC229BCD3C005C2606 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		5185ACBD229BCD3C005C2606 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5185ACBF229BCD3C005C2606 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L5TRHD689W;
+				INFOPLIST_FILE = HyCrashHookDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = hydreamit.HyCrashHookDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5185ACC0229BCD3C005C2606 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L5TRHD689W;
+				INFOPLIST_FILE = HyCrashHookDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = hydreamit.HyCrashHookDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5185ACC2229BCD3C005C2606 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = HyCrashHookDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = hydreamit.HyCrashHookDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HyCrashHookDemo.app/HyCrashHookDemo";
+			};
+			name = Debug;
+		};
+		5185ACC3229BCD3C005C2606 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = HyCrashHookDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = hydreamit.HyCrashHookDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HyCrashHookDemo.app/HyCrashHookDemo";
+			};
+			name = Release;
+		};
+		5185ACC5229BCD3C005C2606 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = HyCrashHookDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = hydreamit.HyCrashHookDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HyCrashHookDemo;
+			};
+			name = Debug;
+		};
+		5185ACC6229BCD3C005C2606 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = HyCrashHookDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = hydreamit.HyCrashHookDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HyCrashHookDemo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5185AC8D229BCD3B005C2606 /* Build configuration list for PBXProject "HyCrashHookDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5185ACBC229BCD3C005C2606 /* Debug */,
+				5185ACBD229BCD3C005C2606 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5185ACBE229BCD3C005C2606 /* Build configuration list for PBXNativeTarget "HyCrashHookDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5185ACBF229BCD3C005C2606 /* Debug */,
+				5185ACC0229BCD3C005C2606 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5185ACC1229BCD3C005C2606 /* Build configuration list for PBXNativeTarget "HyCrashHookDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5185ACC2229BCD3C005C2606 /* Debug */,
+				5185ACC3229BCD3C005C2606 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5185ACC4229BCD3C005C2606 /* Build configuration list for PBXNativeTarget "HyCrashHookDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5185ACC5229BCD3C005C2606 /* Debug */,
+				5185ACC6229BCD3C005C2606 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5185AC8A229BCD3B005C2606 /* Project object */;
+}
