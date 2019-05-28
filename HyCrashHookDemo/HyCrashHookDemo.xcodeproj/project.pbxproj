@@ -27,7 +27,6 @@
 		5185AD0D229BCE08005C2606 /* NSMutableDictionary+CrashHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185ACEA229BCE07005C2606 /* NSMutableDictionary+CrashHook.m */; };
 		5185AD0E229BCE08005C2606 /* NSObject+CrashHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185ACEC229BCE07005C2606 /* NSObject+CrashHook.m */; };
 		5185AD0F229BCE08005C2606 /* NSDictionary+CrashHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185ACF1229BCE07005C2606 /* NSDictionary+CrashHook.m */; };
-		5185AD10229BCE08005C2606 /* NSMutableArray+CrashHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185ACF2229BCE07005C2606 /* NSMutableArray+CrashHook.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		5185AD11229BCE08005C2606 /* NSString+CrashHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185ACF4229BCE07005C2606 /* NSString+CrashHook.m */; };
 		5185AD12229BCE08005C2606 /* NSTimer+CrashHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185ACF5229BCE07005C2606 /* NSTimer+CrashHook.m */; };
 		5185AD13229BCE08005C2606 /* CADisplayLink+CrashHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185ACF7229BCE07005C2606 /* CADisplayLink+CrashHook.m */; };
@@ -60,6 +59,7 @@
 		5185AD57229BCE9B005C2606 /* NSUserDefaults_CrashHookTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185AD40229BCE9B005C2606 /* NSUserDefaults_CrashHookTestController.m */; };
 		5185AD58229BCE9B005C2606 /* NSObject_CrashHookTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185AD43229BCE9B005C2606 /* NSObject_CrashHookTestController.m */; };
 		5185AD59229BCE9B005C2606 /* NSMutableDictionary_CrashHookTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185AD45229BCE9B005C2606 /* NSMutableDictionary_CrashHookTestController.m */; };
+		5185AD9B229CFA31005C2606 /* NSMutableArray+CrashHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185AD9A229CFA31005C2606 /* NSMutableArray+CrashHook.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,7 +110,6 @@
 		5185ACDF229BCE07005C2606 /* NSTimer+CrashHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+CrashHook.h"; sourceTree = "<group>"; };
 		5185ACE0229BCE07005C2606 /* NSString+CrashHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CrashHook.h"; sourceTree = "<group>"; };
 		5185ACE1229BCE07005C2606 /* NSData+CrashHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+CrashHook.m"; sourceTree = "<group>"; };
-		5185ACE2229BCE07005C2606 /* NSMutableArray+CrashHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+CrashHook.h"; sourceTree = "<group>"; };
 		5185ACE3229BCE07005C2606 /* NSCache+CrashHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCache+CrashHook.h"; sourceTree = "<group>"; };
 		5185ACE4229BCE07005C2606 /* NSMutableString+CrashHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableString+CrashHook.h"; sourceTree = "<group>"; };
 		5185ACE5229BCE07005C2606 /* NSSet+CrashHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet+CrashHook.h"; sourceTree = "<group>"; };
@@ -126,7 +125,6 @@
 		5185ACEF229BCE07005C2606 /* NSOrderedSet+CrashHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOrderedSet+CrashHook.h"; sourceTree = "<group>"; };
 		5185ACF0229BCE07005C2606 /* NSAttributedString+CrashHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+CrashHook.h"; sourceTree = "<group>"; };
 		5185ACF1229BCE07005C2606 /* NSDictionary+CrashHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+CrashHook.m"; sourceTree = "<group>"; };
-		5185ACF2229BCE07005C2606 /* NSMutableArray+CrashHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+CrashHook.m"; sourceTree = "<group>"; };
 		5185ACF3229BCE07005C2606 /* NSData+CrashHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+CrashHook.h"; sourceTree = "<group>"; };
 		5185ACF4229BCE07005C2606 /* NSString+CrashHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CrashHook.m"; sourceTree = "<group>"; };
 		5185ACF5229BCE07005C2606 /* NSTimer+CrashHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+CrashHook.m"; sourceTree = "<group>"; };
@@ -186,6 +184,8 @@
 		5185AD43229BCE9B005C2606 /* NSObject_CrashHookTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSObject_CrashHookTestController.m; sourceTree = "<group>"; };
 		5185AD44229BCE9B005C2606 /* NSMutableAttributedString_CrashHookTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSMutableAttributedString_CrashHookTestController.h; sourceTree = "<group>"; };
 		5185AD45229BCE9B005C2606 /* NSMutableDictionary_CrashHookTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSMutableDictionary_CrashHookTestController.m; sourceTree = "<group>"; };
+		5185AD99229CFA31005C2606 /* NSMutableArray+CrashHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+CrashHook.h"; sourceTree = "<group>"; };
+		5185AD9A229CFA31005C2606 /* NSMutableArray+CrashHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+CrashHook.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,9 +278,9 @@
 			children = (
 				5185ACD7229BCE07005C2606 /* Category */,
 				5185AD02229BCE07005C2606 /* HyCrashHookManager.h */,
-				5185AD00229BCE07005C2606 /* HyCrashHookMethods.m */,
-				5185AD04229BCE07005C2606 /* HyCrashHookMethods.h */,
 				5185AD05229BCE07005C2606 /* HyCrashHookManager.m */,
+				5185AD04229BCE07005C2606 /* HyCrashHookMethods.h */,
+				5185AD00229BCE07005C2606 /* HyCrashHookMethods.m */,
 				5185AD01229BCE07005C2606 /* HyCrashHookLogger.h */,
 				5185AD03229BCE07005C2606 /* HyCrashHookLogger.m */,
 			);
@@ -295,8 +295,6 @@
 				5185ACEC229BCE07005C2606 /* NSObject+CrashHook.m */,
 				5185ACF6229BCE07005C2606 /* NSArray+CrashHook.h */,
 				5185ACDE229BCE07005C2606 /* NSArray+CrashHook.m */,
-				5185ACE2229BCE07005C2606 /* NSMutableArray+CrashHook.h */,
-				5185ACF2229BCE07005C2606 /* NSMutableArray+CrashHook.m */,
 				5185ACD8229BCE07005C2606 /* NSDictionary+CrashHook.h */,
 				5185ACF1229BCE07005C2606 /* NSDictionary+CrashHook.m */,
 				5185ACFC229BCE07005C2606 /* NSMutableDictionary+CrashHook.h */,
@@ -331,6 +329,7 @@
 				5185ACFA229BCE07005C2606 /* NSCache+CrashHook.m */,
 				5185ACF3229BCE07005C2606 /* NSData+CrashHook.h */,
 				5185ACE1229BCE07005C2606 /* NSData+CrashHook.m */,
+				5185AD98229CFA31005C2606 /* MRC */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -380,6 +379,15 @@
 				5185AD3D229BCE9B005C2606 /* NSData_CrashHookTestController.m */,
 			);
 			path = Demo;
+			sourceTree = "<group>";
+		};
+		5185AD98229CFA31005C2606 /* MRC */ = {
+			isa = PBXGroup;
+			children = (
+				5185AD99229CFA31005C2606 /* NSMutableArray+CrashHook.h */,
+				5185AD9A229CFA31005C2606 /* NSMutableArray+CrashHook.m */,
+			);
+			path = MRC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -524,6 +532,7 @@
 				5185AD58229BCE9B005C2606 /* NSObject_CrashHookTestController.m in Sources */,
 				5185AD4F229BCE9B005C2606 /* NSMutableAttributedString_CrashHookTestController.m in Sources */,
 				5185AD12229BCE08005C2606 /* NSTimer+CrashHook.m in Sources */,
+				5185AD9B229CFA31005C2606 /* NSMutableArray+CrashHook.m in Sources */,
 				5185AD1B229BCE08005C2606 /* HyCrashHookLogger.m in Sources */,
 				5185AD1C229BCE08005C2606 /* HyCrashHookManager.m in Sources */,
 				5185AD59229BCE9B005C2606 /* NSMutableDictionary_CrashHookTestController.m in Sources */,
@@ -554,7 +563,6 @@
 				5185AD18229BCE08005C2606 /* NSNotificationCenter+CrashHook.m in Sources */,
 				5185AD4B229BCE9B005C2606 /* NSOrderedSet_CrashHookTestController.m in Sources */,
 				5185ACA5229BCD3C005C2606 /* main.m in Sources */,
-				5185AD10229BCE08005C2606 /* NSMutableArray+CrashHook.m in Sources */,
 				5185AD52229BCE9B005C2606 /* NSMutableString_CrashHookTestController.m in Sources */,
 				5185AD4C229BCE9B005C2606 /* NSCache_CrashHookTestController.m in Sources */,
 				5185AD09229BCE08005C2606 /* NSMutableAttributedString+CrashHook.m in Sources */,

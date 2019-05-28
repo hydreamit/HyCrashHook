@@ -9,5 +9,6 @@ s.platform     = :ios, '9.0'
 s.source       = {:git => 'https://github.com/hydreamit/HyCrashHook.git', :tag => s.version}
 s.source_files = 'HyCrashHook/**/*.{h,m}'
 s.framework    = 'Foundation'
-s.requires_arc = true
+s.requires_arc = false
+s.requires_arc = ['HyCrashHook/*', 'HyCrashHook/Category/*']
 end
