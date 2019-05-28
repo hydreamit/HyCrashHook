@@ -1,7 +1,10 @@
 # HyCrashHook
 
 
-Hook 常见Crash不让程序闪退， 订阅Crash根据自身需要做相应处理。
+### Hook 常见Crash不让程序闪退， 订阅Crash根据自身需要做相应处理。
+*Hook的类:
+ ![image](https://github.com/hydreamit/HyCrashHook/blob/master/HyCrashHookClasses.png)
+
 
 
 ## 如何导入
@@ -14,7 +17,8 @@ pod 'HyCrashHook'
 
 __手动导入__
 
-  直接将`HyCrashHook`文件夹里所有文件拖入项目，然后需要把`NSMutableArray+CrashHook.m`文件的编译选项添加-fno-objc-arc
+  直接将`HyCrashHook`文件夹拖入项目，然后把`NSMutableArray+CrashHook.m`文件的编译选项添加-fno-objc-arc
+
 
 
 ## 如何使用
