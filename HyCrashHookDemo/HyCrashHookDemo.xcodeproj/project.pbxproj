@@ -59,7 +59,7 @@
 		5185AD57229BCE9B005C2606 /* NSUserDefaults_CrashHookTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185AD40229BCE9B005C2606 /* NSUserDefaults_CrashHookTestController.m */; };
 		5185AD58229BCE9B005C2606 /* NSObject_CrashHookTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185AD43229BCE9B005C2606 /* NSObject_CrashHookTestController.m */; };
 		5185AD59229BCE9B005C2606 /* NSMutableDictionary_CrashHookTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185AD45229BCE9B005C2606 /* NSMutableDictionary_CrashHookTestController.m */; };
-		5185AD9B229CFA31005C2606 /* NSMutableArray+CrashHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185AD9A229CFA31005C2606 /* NSMutableArray+CrashHook.m */; };
+		5185AD9B229CFA31005C2606 /* NSMutableArray+CrashHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185AD9A229CFA31005C2606 /* NSMutableArray+CrashHook.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
