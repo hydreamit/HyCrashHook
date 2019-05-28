@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name         = 'HyCrashHook'
-s.version      = '1.0.0'
+s.version      = '1.0.1'
 s.summary      = 'Hook Crash Keep Procedures Away from Running'
 s.homepage     = 'https://github.com/hydreamit/HyCrashHook'
 s.license      = 'MIT'
