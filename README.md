@@ -3,17 +3,17 @@
 
 Hook 常见Crash不让程序闪退， 订阅Crash根据自身需要做相应处理。
 
-****
+--------
 
 |Class|
-|---|
+|:---:|
 |NSObject (KVC、KVO、UnrecognizedSelector)|
-|NSArray   NSMutableArray|
-|NSDictionary   NSMutableDictionary|
-|NSString   NSMutableString|
-|NSAttributedString   NSMutableAttributedString|
-|NSSet   NSMutableSet|
-|NSOrderedSet   NSMutableOrderedSet|
+|NSArray,  NSMutableArray|
+|NSDictionary,  NSMutableDictionary|
+|NSString,  NSMutableString|
+|NSAttributedString,  NSMutableAttributedString|
+|NSSet,  NSMutableSet|
+|NSOrderedSet,  NSMutableOrderedSet|
 |NSNotificationCenter|
 |NSDecimalNumber|
 |NSUserDefaults|
@@ -22,8 +22,6 @@ Hook 常见Crash不让程序闪退， 订阅Crash根据自身需要做相应处�
 |NSCache|
 |NSData|
 
-
-****
 
 ## 如何导入
 
