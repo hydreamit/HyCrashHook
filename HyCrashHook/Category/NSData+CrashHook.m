@@ -48,7 +48,7 @@
     if (dataToFind == nil && (searchRange.location + searchRange.length <= self.length)) {
         return [self hy_rangeOfData:dataToFind options:mask range:searchRange];
     }
-    hy_crashHookLog(NSData.class, _cmd, [NSString stringWithFormat:@"invalid dataToFind:%@ location:%tu dataToFind,  length:%tu",dataToFind, (unsigned long)searchRange.location, searchRange.length]);
+    hy_crashHookLog(NSData.class, _cmd, [NSString stringWithFormat:@"invalid dataToFind:%@ location:%tu dataToFind,  length:%tu",dataToFind, searchRange.location, searchRange.length]);
     return NSMakeRange(NSNotFound, 0);
 }
 @end
