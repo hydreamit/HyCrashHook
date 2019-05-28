@@ -8,31 +8,20 @@ Hook 常见Crash不让程序闪退， 订阅Crash根据自身需要做相应处�
 |Class|
 |:---:|
 |NSObject (KVC、KVO、UnrecognizedSelector)|
-|:---:|
 |NSArray|NSMutableArray|
 |:---:|:---:|
 |NSDictionary|NSMutableDictionary|
-|:---:|:---:|
 |NSStringNSMutableString|
-|:---:|:---:|
 |NSAttributedString|NSMutableAttributedString|
-|:---:|:---:|
 |NSSet|NSMutableSet|
-|:---:|:---:|
 |NSOrderedSet|NSMutableOrderedSet|
-|:---:|:---:|
+|:---:|
 |NSNotificationCenter|
-|:---:|
 |NSDecimalNumber|
-|:---:|
 |NSUserDefaults|
-|:---:|
 |CADisplayLink|
-|:---:|
 |NSTimer|
-|:---:|
 |NSCache|
-|:---:|
 |NSData|
 
 ****
