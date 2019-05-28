@@ -34,7 +34,7 @@
     if (range.location + range.length <= array.count) {
         return [self hy_orderedSetWithArray:array range:range copyItems:flag];
     }
-     hy_crashHookLog(NSOrderedSet.class, _cmd, [NSString stringWithFormat:@"arrayCount:%lu rangeLocation:%lu rangeLength:%lu", (unsigned long)array.count, (unsigned long)range.location, range.length]);
+     hy_crashHookLog(NSOrderedSet.class, _cmd, [NSString stringWithFormat:@"arrayCount:%tu rangeLocation:%tu rangeLength:%tu", (unsigned long)array.count, (unsigned long)range.location, range.length]);
     return nil;
 }
 
@@ -43,7 +43,7 @@
     if (idx >= 0 && idx < self.count) {
         return [self hy_objectAtIndex:idx];
     }
-    hy_crashHookLog(NSOrderedSet.class, _cmd, [NSString stringWithFormat:@"idx:%lu count:%lu", (unsigned long)idx, (unsigned long)self.count]);
+    hy_crashHookLog(NSOrderedSet.class, _cmd, [NSString stringWithFormat:@"idx:%tu count:%tu", (unsigned long)idx, (unsigned long)self.count]);
     return nil;
 }
 
