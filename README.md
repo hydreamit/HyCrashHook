@@ -5,27 +5,25 @@ Hook 常见Crash不让程序闪退， 订阅Crash根据自身需要做相应处�
 
 ****
 
-|NSObject (KVC、KVO、UnrecognizedSelector)||
-|E-mail|Jelly.K.Wang@qq.com
+|Class|
+|---|
+|NSObject (KVC、KVO、UnrecognizedSelector)|
+|NSArray   NSMutableArray|
+|NSDictionary   NSMutableDictionary|
+|NSString   NSMutableString|
+|NSAttributedString   NSMutableAttributedString|
+|NSSet   NSMutableSet|
+|NSOrderedSet   NSMutableOrderedSet|
+|NSNotificationCenter|
+|NSDecimalNumber|
+|NSUserDefaults|
+|CADisplayLink|
+|NSTimer|
+|NSCache|
+|NSData|
 
 
 ****
-
-*NSObject (KVC、KVO、UnrecognizedSelector)
-*NSArray, NSMutableArray
-*NSDictionary, NSMutableDictionary
-*NSString, NSMutableString
-*NSAttributedString, NSMutableAttributedString
-*NSSet, NSMutableSet
-*NSOrderedSet, NSMutableOrderedSet
-*NSNotificationCenter
-*NSDecimalNumber
-*NSUserDefaults
-*CADisplayLink
-*NSTimer
-*NSCache
-*NSData
-
 
 ## 如何导入
 
