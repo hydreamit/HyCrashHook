@@ -6,9 +6,7 @@ Hook 常见Crash不让程序闪退， 订阅Crash根据自身需要做相应处�
 ****
 
 |NSObject (KVC、KVO、UnrecognizedSelector)|
-|------
 |NSArray|NSMutableArray
-|---|---
 
 
 ****
