@@ -2,7 +2,7 @@
 
 
 Hook 常见Crash不让程序闪退， 订阅Crash根据自身需要做相应处理。
- ![image](https://github.com/hydreamit/HyCrashHook/blob/master/HyCrashHookClasses.png)
+![image](https://github.com/hydreamit/HyCrashHook/blob/master/HyCrashHookClasses.png)
 
 
 
