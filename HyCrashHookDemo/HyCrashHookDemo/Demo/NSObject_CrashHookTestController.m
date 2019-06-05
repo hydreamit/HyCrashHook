@@ -31,16 +31,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    HyCrashHandler *crashHander =
-    [HyCrashHookManager subscribeCrashWithClasses:@[NSObject.class] block:^(__unsafe_unretained Class cls, NSString *location, NSString *description, NSArray<NSString *> *callStack) {
+    HyCrashHandler *crashHandler =
+    [HyCrashHookManager subscribeCrashWithClasses:@[NSObject.class] 
+                                            block:^(Class  _Nullable __unsafe_unretained cls,
+                                                    NSString * _Nullable location,
+                                                    NSString * _Nullable description,
+                                                    NSArray<NSString *> * _Nullable callStack) {
 
-        NSLog(@"");
+        NSLog(@"subscribeCrash Class:%@", cls);
     }];
     
     hy_swizzleDealloc(self, ^(NSObject_CrashHookTestController *instance) {
         
         NSLog(@"hy_swizzleDealloc:%@", NSStringFromClass([instance class]));
-        [HyCrashHookManager disposeCrashHander:crashHander];
+        [HyCrashHookManager disposeCrashHandler:crashHandler];
     });
     
     [self test_kvc];

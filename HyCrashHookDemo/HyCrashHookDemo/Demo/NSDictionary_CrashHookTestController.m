@@ -18,16 +18,20 @@
     [super viewDidLoad];
     
     // subscribe only NSDictionary hooked crash
-    HyCrashHandler *crashHander =
-    [HyCrashHookManager subscribeCrashWithClasses:@[NSDictionary.class] block:^(__unsafe_unretained Class cls, NSString *location, NSString *description, NSArray<NSString *> *callStack) {
+    HyCrashHandler *crashHandler =
+    [HyCrashHookManager subscribeCrashWithClasses:@[NSDictionary.class] 
+                                            block:^(Class  _Nullable __unsafe_unretained cls,
+                                                    NSString * _Nullable location,
+                                                    NSString * _Nullable description,
+                                                    NSArray<NSString *> * _Nullable callStack) {
         
-        NSLog(@"subscribeCrash: Class:%@", cls);
+        NSLog(@"subscribeCrash Class:%@", cls);
     }];
     
     hy_swizzleDealloc(self, ^(id instance) {
         
         NSLog(@"hy_swizzleDealloc:%@", NSStringFromClass([instance class]));
-        [HyCrashHookManager disposeCrashHander:crashHander];
+        [HyCrashHookManager disposeCrashHandler:crashHandler];
     });
     
     NSString *value = nil;

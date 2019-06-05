@@ -37,7 +37,7 @@
 @interface HyCrashHookManager () <NSCopying, NSMutableCopying>
 @property (nonatomic,strong) NSArray<Class> *defaultClasses;
 @property (nonatomic,strong) NSMutableArray<Class> *openedClasses;
-@property (nonatomic,strong) NSMutableArray <HyCrashHandler*> *crashHanders;
+@property (nonatomic,strong) NSMutableArray <HyCrashHandler*> *crashHandlers;
 @property (nonatomic,assign,getter=isOpenLog) BOOL openLog;
 @end
 
@@ -51,7 +51,7 @@
         
         _instance = [[super allocWithZone:NULL] init];
         _instance.openLog = YES;
-        _instance.crashHanders = @[].mutableCopy;
+        _instance.crashHandlers = @[].mutableCopy;
         _instance.openedClasses = @[].mutableCopy;
         _instance.defaultClasses = @[NSObject.class,
                                      NSArray.class, NSMutableArray.class,
@@ -117,20 +117,20 @@
     
     if (filterArray.count) {
         HyCrashHandler *hander = [HyCrashHandler handerWithWithClasses:filterArray block:block];
-        [[[self manager] crashHanders] addObject:hander];
+        [[[self manager] crashHandlers] addObject:hander];
         return hander;
     } else {
         return nil;
     }
 }
 
-+ (void)disposeCrashHander:(HyCrashHandler *)crashHander {
++ (void)disposeCrashHandler:(HyCrashHandler *)crashHandler {
     
-    if (crashHander &&
-        [[[self manager] crashHanders] containsObject:crashHander]) {
+    if (crashHandler &&
+        [[[self manager] crashHandlers] containsObject:crashHandler]) {
         
-        [crashHander dispose];
-        [[[self manager] crashHanders] removeObject:crashHander];
+        [crashHandler dispose];
+        [[[self manager] crashHandlers] removeObject:crashHandler];
     }
 }
 

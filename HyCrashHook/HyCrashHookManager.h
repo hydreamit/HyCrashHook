@@ -11,10 +11,10 @@
 #import <UIKit/UIKit.h>
 
 
-typedef void(^HyCrashHandlerBlock)(Class cls,                        // Crash class
-                                   NSString *location,              // method Location
-                                   NSString *description,          // description
-                                   NSArray<NSString *> *callStack // callStack
+typedef void(^HyCrashHandlerBlock)(Class _Nullable cls,                         // Crash class
+                                   NSString * _Nullable location,              // method Location
+                                   NSString * _Nullable description,          // description
+                                   NSArray<NSString *> * _Nullable callStack // callStack
                                    );
 
 NS_ASSUME_NONNULL_BEGIN
@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong,readonly) NSArray<Class> *classes;
 @end
 @interface HyCrashHookManager : NSObject
-@property (nonatomic,strong,readonly) NSMutableArray <HyCrashHandler*> *crashHanders;
+@property (nonatomic,strong,readonly) NSMutableArray <HyCrashHandler*> *crashHandlers;
 @property (nonatomic,strong,readonly) NSArray<Class> *defaultClasses;
 @property (nonatomic,assign,readonly,getter=isOpenLog) BOOL openLog;
 + (instancetype)manager;
@@ -67,9 +67,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  dispose Crash Subscribe
 
- @param crashHander crashHander
+ @param crashHandler crashHander
  */
-+ (void)disposeCrashHander:(HyCrashHandler *)crashHander;
++ (void)disposeCrashHandler:(HyCrashHandler *)crashHandler;
 
 
 /**

@@ -43,7 +43,7 @@ NSString *getLocation(NSArray<NSString *> *callStackSymbols){
             break;
         }
     }
-    return mainCallStackSymbolMsg ?: @"崩溃方法定位失败,请您查看函数调用栈来排查错误原因";
+    return mainCallStackSymbolMsg ?: @"The crash method failed to locate. Please look at the callStackSymbols";
 };
 
 
@@ -69,7 +69,7 @@ void hy_crashHookLog(Class cls, SEL sel, NSString *message) {
     NSArray<NSString *> *callStackSymbols = [NSThread callStackSymbols];
     NSString *location = getLocation(callStackSymbols);
     
-    NSArray<HyCrashHandler*> *crashHanders = HyCrashHookManager.manager.crashHanders;
+    NSArray<HyCrashHandler*> *crashHanders = HyCrashHookManager.manager.crashHandlers;
     [crashHanders enumerateObjectsUsingBlock:^(HyCrashHandler * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (obj.block) {
             if (isObjectClass) {

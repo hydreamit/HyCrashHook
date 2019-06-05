@@ -154,7 +154,7 @@
         
         // UnrecognizedSelector
         NSArray<NSString *> *swizzleSignatureMethods = @[@"methodSignatureForSelector:",
-                                                        @"forwardInvocation:"];
+                                                         @"forwardInvocation:"];
         hy_swizzleClassMethods([self class], swizzleSignatureMethods);
         hy_swizzleInstanceMethods([self class], swizzleSignatureMethods);
     });
@@ -214,7 +214,7 @@
         });
         objc_setAssociatedObject(self, HyKvoSwizzleDeallocKey, @"", OBJC_ASSOCIATION_COPY_NONATOMIC);
     }
-
+    
     // swizzled observer dealloc
     NSString *swizzledObserverDealloc = objc_getAssociatedObject(observer, HyKvoSwizzleDeallocKey);
     if (!swizzledObserverDealloc) {
@@ -261,13 +261,13 @@
             [manger removeItem:filterItem];
             [self hy_removeObserver:observer forKeyPath:keyPath];
         } else {
-            hy_crashHookLog(self.class, _cmd, @"because it is not registered as an observer.");
+            hy_crashHookLog(self.class, _cmd, @"isObjectClass because it is not registered as an observer.");
         }
     } else {
         @try {
             [self hy_removeObserver:observer forKeyPath:keyPath];
         } @catch (NSException *exception) {
-            hy_crashHookLog(self.class, _cmd, exception.reason);
+            hy_crashHookLog(self.class, _cmd, [NSString stringWithFormat:@"isObjectClass %@", exception.reason]);
         } @finally {
             
         }
@@ -286,7 +286,7 @@
     }
     
     if (!observer && !keyPath.length) { return; }
-
+    
     HyKvoObserverItem *item =
     [HyKvoObserverItem itemWithObserver:observer
                                 keyPath:keyPath
@@ -302,7 +302,7 @@
                          forKeyPath:keyPath
                             context:context];
         } else {
-            hy_crashHookLog(NSObject.class, _cmd, @"because it is not registered as an observer.");
+            hy_crashHookLog(self.class, _cmd, @"isObjectClass because it is not registered as an observer.");
         }
     } else {
         @try {
@@ -310,7 +310,7 @@
                          forKeyPath:keyPath
                             context:context];
         } @catch (NSException *exception) {
-            hy_crashHookLog(NSObject.class, _cmd, exception.reason);
+            hy_crashHookLog(self.class, _cmd, [NSString stringWithFormat:@"isObjectClass %@", exception.reason]);
         } @finally {
             
         }
@@ -318,16 +318,16 @@
 }
 
 - (void)hy_observeValueForKeyPath:(NSString *)keyPath
-                      ofObject:(id)object
-                        change:(NSDictionary<NSKeyValueChangeKey,id> *)change
-                       context:(void *)context {
+                         ofObject:(id)object
+                           change:(NSDictionary<NSKeyValueChangeKey,id> *)change
+                          context:(void *)context {
     @try {
         [self hy_observeValueForKeyPath:keyPath
                                ofObject:object
                                  change:change
                                 context:context];
     } @catch (NSException *exception) {
-        hy_crashHookLog(NSObject.class, _cmd, exception.reason);
+        hy_crashHookLog(self.class, _cmd, [NSString stringWithFormat:@"isObjectClass %@", exception.reason]);
     } @finally {
         
     }
@@ -351,49 +351,6 @@
     return NO;
 }
 
-+ (NSMethodSignature*)hy_methodSignatureForSelector:(SEL)aSelector {
-    
-    NSMethodSignature *methodSignature = [self hy_methodSignatureForSelector:aSelector];
-    if (methodSignature) {
-        return methodSignature;
-    }
-    return [self.class checkObjectSignatureAndCurrentClass:self.class];
-}
-
-- (NSMethodSignature*)hy_methodSignatureForSelector:(SEL)aSelector {
-    
-    NSMethodSignature* methodSignature = [self hy_methodSignatureForSelector:aSelector];
-    if (methodSignature) {
-        return methodSignature;
-    }
-    return [self.class checkObjectSignatureAndCurrentClass:self.class];
-}
-
-+ (NSMethodSignature *)checkObjectSignatureAndCurrentClass:(Class)currentClass {
-    
-    IMP originIMP = class_getMethodImplementation([NSObject class], @selector(methodSignatureForSelector:));
-    IMP currentClassIMP = class_getMethodImplementation(currentClass, @selector(methodSignatureForSelector:));
-    
-    // If current class override methodSignatureForSelector return nil
-    if (originIMP != currentClassIMP){
-        return nil;
-    }
-    
-    // Customer method signature
-    // void xxx(id,sel,id)
-    return [NSMethodSignature signatureWithObjCTypes:"v@:"];
-}
-
-- (void)hy_forwardInvocation:(NSInvocation*)invocation {
-    
-    hy_crashHookLog(self.class, _cmd ,[NSString stringWithFormat:@"isObjectClass Unrecognized instance class:%@ and selector:%@",NSStringFromClass(self.class),NSStringFromSelector(invocation.selector)]);
-}
-
-+ (void)hy_forwardClassInvocation:(NSInvocation*)invocation {
-    
-    hy_crashHookLog(self, _cmd, [NSString stringWithFormat:@"isObjectClass Unrecognized static class:%@ and selector:%@",NSStringFromClass(self.class),NSStringFromSelector(invocation.selector)]);
-}
-
 - (void)hy_setValue:(id)value forUndefinedKey:(NSString *)key {
     
     hy_crashHookLog(self.class, _cmd, [NSString stringWithFormat:@"isObjectClass key: %@", key]);
@@ -403,6 +360,42 @@
     
     hy_crashHookLog(self.class, _cmd, [NSString stringWithFormat:@"isObjectClass key: %@", key]);
     return nil;
+}
+
++ (NSMethodSignature *)hy_methodSignatureForSelector:(SEL)aSelector {
+    
+    return [self hy_methodSignatureForSelector:aSelector] ?:
+           [self.class checkObjectSignatureAndCurrentClass:self.class];
+}
+
+- (NSMethodSignature *)hy_methodSignatureForSelector:(SEL)aSelector {
+    
+    return [self hy_methodSignatureForSelector:aSelector] ?:
+           [self.class checkObjectSignatureAndCurrentClass:self.class];
+}
+
++ (NSMethodSignature *)checkObjectSignatureAndCurrentClass:(Class)currentClass {
+    
+    IMP originIMP = class_getMethodImplementation([NSObject class], @selector(methodSignatureForSelector:));
+    IMP currentClassIMP = class_getMethodImplementation(currentClass, @selector(methodSignatureForSelector:));
+    
+    // If current class override methodSignatureForSelector return nil
+    if (originIMP != currentClassIMP) {
+        return nil;
+    }
+    
+    // Customer method signature
+    return [NSMethodSignature signatureWithObjCTypes:"v@:"];
+}
+
+- (void)hy_forwardInvocation:(NSInvocation *)invocation {
+    
+    hy_crashHookLog(self.class, _cmd ,[NSString stringWithFormat:@"isObjectClass Unrecognized instance class:%@ sent to selector:%@",NSStringFromClass(self.class),NSStringFromSelector(invocation.selector)]);
+}
+
++ (void)hy_forwardClassInvocation:(NSInvocation *)invocation {
+    
+    hy_crashHookLog(self, _cmd, [NSString stringWithFormat:@"isObjectClass Unrecognized class:%@ sent to selector:%@",NSStringFromClass(self.class),NSStringFromSelector(invocation.selector)]);
 }
 
 @end

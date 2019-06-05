@@ -22,7 +22,11 @@
     [HyCrashHookManager openCrashHookWithClasses:nil];
     
     // subscribe all class crash
-    [HyCrashHookManager subscribeCrashWithClasses:nil block:^(__unsafe_unretained Class cls, NSString *location, NSString *description, NSArray<NSString *> *callStack) {
+    [HyCrashHookManager subscribeCrashWithClasses:nil 
+                                            block:^(Class  _Nullable __unsafe_unretained cls,
+                                                    NSString * _Nullable location,
+                                                    NSString * _Nullable description,
+                                                    NSArray<NSString *> * _Nullable callStack) {
         
          // handle hooked crash
         // ....
