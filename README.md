@@ -68,7 +68,7 @@ __手动导入__
     }];
     
     // 订阅指定已开启Hook类的Crash
-    HyCrashHandler *crashHander =
+    HyCrashHandler *crashHandler =
     [HyCrashHookManager subscribeCrashWithClasses:@[NSDictionary.class, NSMutableDictionary.class]
                                             block:^(__unsafe_unretained Class cls,
                                                     NSString *location,
@@ -80,7 +80,7 @@ __手动导入__
     }];
     
     // 取消某个订阅
-    [HyCrashHookManager disposeCrashHander:crashHander];
+    [HyCrashHookManager disposeCrashHandler:crashHandler];
 
 ```
 
