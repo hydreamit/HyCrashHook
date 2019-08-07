@@ -39,6 +39,7 @@
 @property (nonatomic,strong) NSMutableArray<Class> *openedClasses;
 @property (nonatomic,strong) NSMutableArray <HyCrashHandler*> *crashHandlers;
 @property (nonatomic,assign,getter=isOpenLog) BOOL openLog;
+@property (nonatomic,strong) dispatch_semaphore_t semaphore;
 @end
 
 @implementation HyCrashHookManager
@@ -117,7 +118,9 @@
     
     if (filterArray.count) {
         HyCrashHandler *hander = [HyCrashHandler handerWithWithClasses:filterArray block:block];
+        dispatch_semaphore_wait([[self manager] semaphore], DISPATCH_TIME_FOREVER);
         [[[self manager] crashHandlers] addObject:hander];
+        dispatch_semaphore_signal([[self manager] semaphore]);
         return hander;
     } else {
         return nil;
@@ -129,8 +132,10 @@
     if (crashHandler &&
         [[[self manager] crashHandlers] containsObject:crashHandler]) {
         
+        dispatch_semaphore_wait([[self manager] semaphore], DISPATCH_TIME_FOREVER);
         [crashHandler dispose];
         [[[self manager] crashHandlers] removeObject:crashHandler];
+        dispatch_semaphore_signal([[self manager] semaphore]);
     }
 }
 
@@ -142,4 +147,11 @@
     [[self manager] setOpenLog:NO];
 }
 
+- (dispatch_semaphore_t)semaphore{
+    if (!_semaphore) {
+        _semaphore = dispatch_semaphore_create(1);
+        return _semaphore;
+    }
+    return _semaphore;
+}
 @end
