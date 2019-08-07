@@ -150,7 +150,6 @@
 - (dispatch_semaphore_t)semaphore{
     if (!_semaphore) {
         _semaphore = dispatch_semaphore_create(1);
-        return _semaphore;
     }
     return _semaphore;
 }
