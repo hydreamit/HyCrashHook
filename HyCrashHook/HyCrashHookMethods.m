@@ -10,108 +10,85 @@
 #include "HyCrashHookMethods.h"
 
 
-void hy_swizzleClassMethod(Class cls, SEL originSelector, SEL swizzleSelector) {
+void hy_swizzleTwoClassMethods(Class fromCls, SEL fromSel, Class toCls, SEL toSel) {
     
-    if (!cls) { return;}
+    if (!fromCls || !toCls || !fromSel || !toSel) { return;}
     
-    Method originalMethod = class_getClassMethod(cls, originSelector);
-    Method swizzledMethod = class_getClassMethod(cls, swizzleSelector);
+    Method fromMethod = class_getClassMethod(fromCls, fromSel);
+    Method toMethod = class_getClassMethod(toCls, toSel);
     
-    Class metacls = objc_getMetaClass(NSStringFromClass(cls).UTF8String);
-    if (class_addMethod(metacls,
-                        originSelector,
-                        method_getImplementation(swizzledMethod),
-                        method_getTypeEncoding(swizzledMethod)) ) {
-        /* swizzing super class method, added if not exist */
-        class_replaceMethod(metacls,
-                            swizzleSelector,
-                            method_getImplementation(originalMethod),
-                            method_getTypeEncoding(originalMethod));
+    if (!toMethod) {return;}
+    
+    Class fromMetacls = objc_getMetaClass(NSStringFromClass(fromCls).UTF8String);
+    Class toMetacls = objc_getMetaClass(NSStringFromClass(toCls).UTF8String);
+    
+    if (class_addMethod(fromMetacls,
+                        fromSel,
+                        method_getImplementation(toMethod),
+                        method_getTypeEncoding(toMethod))) {
+        
+        class_replaceMethod(toMetacls,
+                            toSel,
+                            method_getImplementation(fromMethod),
+                            method_getTypeEncoding(fromMethod));
         
     } else {
-        /* swizzleMethod maybe belong to super */
-        class_replaceMethod(metacls,
-                            swizzleSelector,
-                            class_replaceMethod(metacls,
-                                                originSelector,
-                                                method_getImplementation(swizzledMethod),
-                                                method_getTypeEncoding(swizzledMethod)),
-                            method_getTypeEncoding(originalMethod));
+        
+        class_replaceMethod(toMetacls,
+                            toSel,
+                            class_replaceMethod(fromMetacls,
+                                                fromSel,
+                                                method_getImplementation(toMethod),
+                                                method_getTypeEncoding(toMethod)),
+                            method_getTypeEncoding(fromMethod));
+        
+//        method_exchangeImplementations(fromMethod, toMethod);
     }
 }
 
+void hy_swizzleTwoInstanceMethods(Class fromCls, SEL fromSel, Class toCls, SEL toSel) {
+    
+    if (!fromCls || !toCls || !fromSel || !toSel) { return;}
+    
+    Class fromClass = objc_getClass(NSStringFromClass(fromCls).UTF8String);
+    Class toClass = objc_getClass(NSStringFromClass(toCls).UTF8String);
+    
+    Method fromMethod = class_getInstanceMethod(fromClass, fromSel);
+    Method toMethod = class_getInstanceMethod(toClass, toSel);
+    
+    if (!toMethod) {return;}
+    
+    if (class_addMethod(fromClass,
+                        fromSel,
+                        method_getImplementation(toMethod),
+                        method_getTypeEncoding(toMethod))) {
+        
+        class_replaceMethod(toClass,
+                            toSel,
+                            method_getImplementation(fromMethod),
+                            method_getTypeEncoding(fromMethod));
+        
+    } else {
+        
+        class_replaceMethod(toClass,
+                            toSel,
+                            class_replaceMethod(fromClass,
+                                                fromSel,
+                                                method_getImplementation(toMethod),
+                                                method_getTypeEncoding(toMethod)),
+                            method_getTypeEncoding(fromMethod));
+        
+//        method_exchangeImplementations(fromMethod, toMethod);
+    }
+}
+
+void hy_swizzleClassMethod(Class cls, SEL originSelector, SEL swizzleSelector) {
+     hy_swizzleTwoClassMethods(cls, originSelector, cls, swizzleSelector);
+}
 
 void hy_swizzleInstanceMethod(Class cls, SEL originSelector, SEL swizzleSelector) {
-    
-    if (!cls) { return;}
-    
-    /* if current class not exist selector, then get super*/
-    Method originalMethod = class_getInstanceMethod(cls, originSelector);
-    Method swizzledMethod = class_getInstanceMethod(cls, swizzleSelector);
-    
-    /* add selector if not exist, implement append with method */
-    if (class_addMethod(cls,
-                        originSelector,
-                        method_getImplementation(swizzledMethod),
-                        method_getTypeEncoding(swizzledMethod)) ) {
-        /* replace class instance method, added if selector not exist */
-        /* for class cluster , it always add new selector here */
-        class_replaceMethod(cls,
-                            swizzleSelector,
-                            method_getImplementation(originalMethod),
-                            method_getTypeEncoding(originalMethod));
-        
-    } else {
-        
-        /* swizzleMethod maybe belong to super */
-        class_replaceMethod(cls,
-                            swizzleSelector,
-                            class_replaceMethod(cls,
-                                                originSelector,
-                                                method_getImplementation(swizzledMethod),
-                                                method_getTypeEncoding(swizzledMethod)),
-                            method_getTypeEncoding(originalMethod));
-    }
+     hy_swizzleTwoInstanceMethods(cls, originSelector, cls, swizzleSelector);
 }
-
-
-void hy_swizzleClassMethodToBlock(Class cls, SEL originSelector, SwizzleMethodToBlock block) {
-    
-    __block IMP originalIMP = NULL;
-    SWizzleImpProvider originalImpProvider = ^IMP {
-        IMP imp = originalIMP;
-        if (NULL == imp){
-            Class superclass = class_getSuperclass(cls);
-            imp = method_getImplementation(class_getInstanceMethod(superclass,originSelector));
-        }
-        return imp;
-    };
-    
-    originalIMP = class_replaceMethod(objc_getMetaClass(NSStringFromClass(cls).UTF8String),
-                                      originSelector,
-                                      imp_implementationWithBlock(block(originSelector, originalImpProvider)),
-                                      method_getTypeEncoding(class_getClassMethod(cls, originSelector)));
-}
-
-
-void hy_swizzleInstanceMethodToBlock(Class cls, SEL originSelector, SwizzleMethodToBlock block) {
-    
-    __block IMP originalIMP = NULL;
-    SWizzleImpProvider originalImpProvider = ^IMP {
-        IMP imp = originalIMP;
-        if (NULL == imp){
-            Class superclass = class_getSuperclass(cls);
-            imp = method_getImplementation(class_getInstanceMethod(superclass,originSelector));
-        }
-        return imp;
-    };
-    
-    originalIMP = class_replaceMethod(cls,
-                                      originSelector,
-                                      imp_implementationWithBlock(block(originSelector, originalImpProvider)),
-                                      method_getTypeEncoding(class_getInstanceMethod(cls, originSelector)));
-}
-
 
 void hy_swizzleClassMethods(id cls, NSArray<NSString *> *methods) {
     
@@ -152,89 +129,225 @@ void hy_swizzleInstanceMethods(id cls, NSArray<NSString *> *methods) {
     }
 }
 
-
-#define HySwizzleDeallocKey @"HySwizzleDealloc"
-static NSMutableSet *swizzledDeallocClasses() {
-    static dispatch_once_t onceToken;
-    static NSMutableSet *swizzledDeallocClasses = nil;
-    dispatch_once(&onceToken, ^{
-        swizzledDeallocClasses = [[NSMutableSet alloc] init];
-    });
-    return swizzledDeallocClasses;
-}
-
-void hy_swizzleDealloc(id instance, SwizzleDeallocBlock performBlock) {
+void hy_swizzleClassMethodToBlock(Class cls, SEL sel, id(^implementationBlock)(SEL sel, IMP(^impBlock)(void))) {
     
-    @synchronized (swizzledDeallocClasses()) {
-        
-        Class cls = [instance class];
-        
-        NSString *className = NSStringFromClass(cls);
-        
-        if (![swizzledDeallocClasses() containsObject:className]) {
-            
-            SEL deallocSelector = sel_registerName("dealloc");
-            
-            __block void (*originalDealloc)(__unsafe_unretained id, SEL) = NULL;
-            
-            id newDealloc = ^(__unsafe_unretained id self) {
-                
-                NSMutableArray *array = objc_getAssociatedObject(self, HySwizzleDeallocKey);
-                for (SwizzleDeallocBlock obj in array) {
-                    obj(self);
-                }
-                [array removeAllObjects];
-                
-                if (originalDealloc == NULL) {
-                    struct objc_super superInfo = {
-                        .receiver = self,
-                        .super_class = class_getSuperclass(cls)
-                    };
-                    void (*msgSend)(struct objc_super *, SEL) = (__typeof__(msgSend))objc_msgSendSuper;
-                    msgSend(&superInfo, deallocSelector);
-                } else {
-                    originalDealloc(self, deallocSelector);
-                }
-            };
-            
-            IMP newDeallocIMP = imp_implementationWithBlock(newDealloc);
-            
-            if (!class_addMethod(cls, deallocSelector, newDeallocIMP, "v@:")) {
-                // The class already contains a method implementation.
-                Method deallocMethod = class_getInstanceMethod(cls, deallocSelector);
-                
-                // We need to store original implementation before setting new implementation
-                // in case method is called at the time of setting.
-                originalDealloc = (__typeof__(originalDealloc))method_getImplementation(deallocMethod);
-                
-                // We need to store original implementation again, in case it just changed.
-                originalDealloc = (__typeof__(originalDealloc))method_setImplementation(deallocMethod, newDeallocIMP);
-            }
-            
-            NSMutableArray *array = @[].mutableCopy;
-            if (performBlock) {
-                [array addObject:performBlock];
-            }
-            objc_setAssociatedObject(instance, HySwizzleDeallocKey, array, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-            
-            [swizzledDeallocClasses() addObject:className];
-            
-        } else {
-
-            NSMutableArray *array = objc_getAssociatedObject(instance, HySwizzleDeallocKey);
-            if (!array) {
-                array = @[].mutableCopy;
-                objc_setAssociatedObject(instance, HySwizzleDeallocKey, array, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-            }
-            if (performBlock) {
-               [array addObject:performBlock];
-            }
+    if (!cls || !sel) { return; }
+    
+    Class metaClas = objc_getMetaClass(NSStringFromClass(cls).UTF8String);
+    
+    __block IMP originalIMP = NULL;
+    IMP (^impBlock)(void) = ^{
+        IMP imp = originalIMP;
+        if (NULL == imp){
+            imp = method_getImplementation(class_getClassMethod(class_getSuperclass(metaClas),sel));
         }
-    }
+        return imp;
+    };
+    
+    originalIMP = class_replaceMethod(objc_getMetaClass(NSStringFromClass(cls).UTF8String),
+                                      sel,
+                                      imp_implementationWithBlock(implementationBlock(sel, impBlock)),
+                                      method_getTypeEncoding(class_getClassMethod(cls, sel)));
+}
+
+void hy_swizzleInstanceMethodToBlock(Class cls, SEL sel, id(^implementationBlock)(SEL sel, IMP(^impBlock)(void))) {
+    
+    if (!cls || !sel) { return; }
+    
+    Class clas = objc_getClass(NSStringFromClass(cls).UTF8String);
+    
+    __block IMP originalIMP = NULL;
+    IMP (^impBlock)(void) = ^{
+        IMP imp = originalIMP;
+        if (NULL == imp){
+            imp = method_getImplementation(class_getInstanceMethod(class_getSuperclass(clas),sel));
+        }
+        return imp;
+    };
+    
+    originalIMP = class_replaceMethod(clas,
+                                      sel,
+                                      imp_implementationWithBlock(implementationBlock(sel, impBlock)),
+                                      method_getTypeEncoding(class_getInstanceMethod(cls, sel)));
+}
+
+void hy_swizzleClassVoidMethodToBlock(Class cls, SEL sel, void(^implementationBlock)(Class cls)) {
+    hy_swizzleClassMethodToBlock(cls, sel, ^id(SEL sel, IMP (^impBlock)(void)) {
+        return ^(Class _cls){
+            
+            !implementationBlock ?: implementationBlock(cls);
+//            void (*impFuction)(Class, SEL) = (void *)impBlock();
+//            if (impFuction != NULL) {
+//                impFuction(cls, sel);
+//            }
+            IMP imp = impBlock();
+            if (imp != NULL) {
+                ((void (*)(Class, SEL))imp)(_cls, sel);
+            }
+        };
+    });
+}
+
+void hy_swizzleInstanceVoidMethodToBlock(Class cls, SEL sel, void(^implementationBlock)(id)) {
+    hy_swizzleInstanceMethodToBlock(cls, sel, ^id(SEL sel, IMP (^impBlock)(void)) {
+        return ^(id _self){
+            
+            !implementationBlock ?: implementationBlock(_self);
+            IMP imp = impBlock();
+            if (imp != NULL) {
+                ((void (*)(id, SEL))imp)(_self, sel);
+            }
+            
+//          void (*impFuction)(id, SEL) = (void *)impBlock();
+//          if (impFuction != NULL) {
+//             impFuction(_self, sel);
+//          }
+        };
+    });
+}
+
+void hy_swizzleAndResetClassMethodToBlock(Class cls, SEL sel, id(^implementationBlock)(SEL sel, IMP(^impBlock)(void), void(^resetImpBlock)(void))) {
+    
+    if (!cls || !sel) { return; }
+    
+    Class metaClas = objc_getMetaClass(NSStringFromClass(cls).UTF8String);
+    
+    __block IMP originalIMP = NULL;
+    IMP (^impBlock)(void) = ^{
+        IMP imp = originalIMP;
+        if (NULL == imp){
+            imp = method_getImplementation(class_getClassMethod(class_getSuperclass(metaClas),sel));
+        }
+        return imp;
+    };
+    
+    void (^resetImpBlock)(void) = ^{
+        IMP imp = impBlock();
+        if (imp) {
+//           id impBlock = imp_getBlock(hy_getClassMethodIMP(cls, sel));
+//           imp_removeBlock(hy_getClassMethodIMP(cls, sel));
+            class_replaceMethod(metaClas,
+                                sel,
+                                imp,
+                                method_getTypeEncoding(class_getClassMethod(cls, sel)));
+        }
+    };
+    
+    originalIMP = class_replaceMethod(objc_getMetaClass(NSStringFromClass(cls).UTF8String),
+                                      sel,
+                                      imp_implementationWithBlock(implementationBlock(sel, impBlock,resetImpBlock)),
+                                      method_getTypeEncoding(class_getClassMethod(cls, sel)));
+}
+
+void hy_swizzleAndResetInstanceMethodToBlock(Class cls, SEL sel, id(^implementationBlock)(SEL sel, IMP(^impBlock)(void), void(^resetImpBlock)(void))) {
+    
+    if (!cls || !sel) { return; }
+    
+    Class clas = objc_getClass(NSStringFromClass(cls).UTF8String);
+    
+    
+    __block IMP originalIMP = NULL;
+    IMP (^impBlock)(void) = ^{
+        IMP imp = originalIMP;
+        if (NULL == imp){
+            imp = method_getImplementation(class_getInstanceMethod(class_getSuperclass(clas),sel));
+        }
+        return imp;
+    };
+    
+    void (^resetImpBlock)(void) = ^{
+        IMP imp = impBlock();
+        if (imp) {
+//           id impBlock = imp_getBlock(hy_getInstanceMethodIMP(clas, sel));
+//           imp_removeBlock(hy_getInstanceMethodIMP(clas, sel));
+            class_replaceMethod(clas,
+                                sel,
+                                imp,
+                                method_getTypeEncoding(class_getInstanceMethod(clas, sel)));
+        }
+    };
+    
+    originalIMP = class_replaceMethod(clas,
+                                      sel,
+                                      imp_implementationWithBlock(implementationBlock(sel, impBlock,resetImpBlock)),
+                                      method_getTypeEncoding(class_getInstanceMethod(cls, sel)));
 }
 
 
-NSArray *hy_getIvarList(Class cls) {
+void hy_swizzleAndResetClassVoidMethodToBlock(Class cls, SEL sel, void(^implementationBlock)(Class cls, void(^resetImpBlock)(void))) {
+    
+    hy_swizzleAndResetClassMethodToBlock(cls, sel, ^id(SEL sel, IMP (^impBlock)(void), void (^resetImpBlock)(void)) {
+        return ^(Class _cls){
+            
+            !implementationBlock ?: implementationBlock(_cls, resetImpBlock);
+
+            IMP imp = impBlock();
+            if (imp != NULL) {
+                ((void (*)(Class, SEL))imp)(_cls, sel);
+            }
+        };
+    });
+}
+
+void hy_swizzleAndResetInstanceVoidMethodToBlock(Class cls, SEL sel, void(^implementationBlock)(id _self, void(^resetImpBlock)(void))) {
+    
+    hy_swizzleAndResetInstanceMethodToBlock(cls, sel, ^id(SEL sel, IMP (^impBlock)(void), void (^resetImpBlock)(void)) {
+        return ^(id _self){
+            
+            !implementationBlock ?: implementationBlock(_self, resetImpBlock);
+            
+            IMP imp = impBlock();
+            if (imp != NULL) {
+                ((void (*)(id, SEL))imp)(_self, sel);
+            }
+        };
+    });
+}
+
+BOOL hy_addClassMethod(Class cls, SEL sel, NSString *types, id implementationBlock) {
+    
+    if (!cls || !sel || !implementationBlock) {
+        return NO;
+    }
+    
+    Class metaClas = objc_getMetaClass(NSStringFromClass(cls).UTF8String);
+    IMP imp = imp_implementationWithBlock(implementationBlock);
+    if (!types) {
+        types = @"v@:";
+    }
+    return class_addMethod(metaClas, sel, imp, types.UTF8String);
+}
+
+BOOL hy_addInstanceMethod(Class cls, SEL sel, NSString *types, id implementationBlock) {
+    
+    if (!cls || !sel || !implementationBlock) {
+        return NO;
+    }
+    
+    Class clas = objc_getClass(NSStringFromClass(cls).UTF8String);
+    IMP imp = imp_implementationWithBlock(implementationBlock);
+    if (!types) {
+        types = @"v@:";
+    }
+    return class_addMethod(clas, sel, imp, types.UTF8String);
+}
+
+BOOL hy_addClass(Class supperClass, NSString *className) {
+    if (!supperClass || !className) {
+        return NO;
+    }
+    
+    Class supClas = objc_getClass(NSStringFromClass(supperClass).UTF8String);
+    const char *clasName = [className cStringUsingEncoding:NSASCIIStringEncoding];
+    Class newClass = objc_getClass(clasName);
+    if (!newClass && supClas){
+        objc_registerClassPair(objc_allocateClassPair(supClas, clasName, 0));
+        return YES;
+    }
+    return NO;
+}
+
+NSArray<NSString *> *hy_getIvarList(Class cls) {
     
     NSMutableArray *ivarList = @[].mutableCopy;
     unsigned int count = 0;
@@ -249,7 +362,7 @@ NSArray *hy_getIvarList(Class cls) {
     return ivarList;
 }
 
-NSArray *hy_getPropertyList(Class cls) {
+NSArray<NSString *> *hy_getPropertyList(Class cls) {
     
     NSMutableArray *propertyList = @[].mutableCopy;
     unsigned int count = 0;
@@ -264,7 +377,7 @@ NSArray *hy_getPropertyList(Class cls) {
     return propertyList;
 }
 
-NSArray *hy_getMethodList(Class cls) {
+NSArray<NSString *> *hy_getMethodList(Class cls) {
     
     NSMutableArray *methodList = @[].mutableCopy;
     unsigned int count = 0;
@@ -278,6 +391,34 @@ NSArray *hy_getMethodList(Class cls) {
     return methodList;
 }
 
+NSArray<NSString *> *hy_getProtocolList(Class cls) {
+    
+    NSMutableArray *protocolList = @[].mutableCopy;
+    unsigned int count = 0;
+    Protocol * __unsafe_unretained _Nonnull *protocols = class_copyProtocolList(cls, &count);
+    for (int i = 0; i<count; i++) {
+        
+        Protocol *protocol = protocolList[i];
+        const char *name = protocol_getName(protocol);
+        NSString *key = [NSString stringWithUTF8String:name];
+        [protocolList addObject:key];
+    }
+    free(protocols);
+    return protocolList;
+}
+
+BOOL hy_checkClass(NSString *className) {
+    if (!className.length) {
+        return NO;
+    }
+    
+    const char *classNameChar = [className cStringUsingEncoding:NSASCIIStringEncoding];
+    Class newClass = objc_getClass(classNameChar);
+    if (!newClass) {
+        return NO;
+    }
+    return YES;
+}
 
 BOOL hy_checkIvar(Class cls , NSString *ivar) {
     
@@ -291,15 +432,108 @@ BOOL hy_checkProperty(Class cls , NSString *property) {
     return class_getProperty(cls, [property cStringUsingEncoding:NSUTF8StringEncoding]) != NULL;
 }
 
-BOOL hy_checkInstanceMethod(Class cls , SEL selector) {
+BOOL hy_checkInstanceMethod(Class cls , SEL sel) {
     
-    if (!cls || !selector) { return NO;}
-    return class_getInstanceMethod(cls, selector) != nil;
+    if (!cls || !sel) { return NO;}
+    return class_getInstanceMethod(cls, sel) != nil;
 }
 
-BOOL hy_checkClassMethod(Class cls , SEL selector) {
+BOOL hy_checkClassMethod(Class cls , SEL sel) {
     
-    if (!cls || !selector) { return NO;}
-    return class_getClassMethod(cls, selector) != nil;
+    if (!cls || !sel) { return NO;}
+    return class_getClassMethod(cls, sel) != nil;
 }
+
+BOOL hy_checkOverrideSuperClassMethod(Class cls , SEL sel) {
+    
+    if (!cls || !sel) { return NO;}
+    
+    Class metacls = objc_getMetaClass(NSStringFromClass(cls).UTF8String);
+    Method method = class_getClassMethod(metacls, sel);
+    if (!method) return NO;
+    
+    Method methodOfSuperclass = class_getClassMethod(class_getSuperclass(metacls), sel);
+    if (!methodOfSuperclass) return YES;
+    
+    return method != methodOfSuperclass;
+}
+
+BOOL hy_checkOverrideSuperInstanceMethod(Class cls , SEL sel) {
+    
+    if (!cls || !sel) { return NO;}
+    
+    Class clas = objc_getClass(NSStringFromClass(cls).UTF8String);
+    Method method = class_getInstanceMethod(clas, sel);
+    if (!method) return NO;
+    
+    Method methodOfSuperclass = class_getInstanceMethod(class_getSuperclass(clas), sel);
+    if (!methodOfSuperclass) return YES;
+    
+    return method != methodOfSuperclass;
+}
+
+IMP hy_getClassMethodIMP(Class cls, SEL sel) {
+    
+    if (!cls || !sel) {return NULL;}
+    Method classMethod = class_getClassMethod(objc_getClass(NSStringFromClass(cls).UTF8String), sel);
+    return method_getImplementation(classMethod);
+    
+//    if (!class_isMetaClass(cls)) {
+//       cls = objc_getMetaClass(NSStringFromClass(cls).UTF8String);
+//    }
+//    return class_getMethodImplementation(cls, sel);
+}
+
+IMP hy_getInstanceMethodIMP(Class cls, SEL sel) {
+    
+    if (!cls || !sel) {return NULL;}
+    Method instanceMethod = class_getInstanceMethod(objc_getClass(NSStringFromClass(cls).UTF8String), sel);
+    return method_getImplementation(instanceMethod);
+    
+//    if (class_isMetaClass(cls)) {
+//        cls = objc_getClass(NSStringFromClass(cls).UTF8String);
+//    }
+//   return class_getMethodImplementation(cls, sel);
+}
+
+
+NSString *hy_getClassMethodTypes(Class cls, SEL sel) {
+    
+    if (!cls || !sel) { return nil;}
+    
+//    NSMethodSignature *signature = [objc_getMetaClass(NSStringFromClass(cls).UTF8String) instanceMethodSignatureForSelector:sel];
+//    SEL selector = sel_registerName("_typeString");
+//    const char *typeEncoding = ((NSString *(*)(id, SEL))[signature methodForSelector:selector])(signature,selector).UTF8String;
+    
+    Method classMethod = class_getClassMethod(objc_getClass(NSStringFromClass(cls).UTF8String), sel);
+    if (classMethod) {
+        return [NSString stringWithUTF8String:method_getTypeEncoding(classMethod)];
+    }
+    return nil;
+}
+
+NSString *hy_getInstanceMethodTypes(Class cls, SEL sel) {
+    
+    if (!cls || !sel) { return nil;}
+    
+//    NSMethodSignature *signature = [objc_getClass(NSStringFromClass(cls).UTF8String) instanceMethodSignatureForSelector:sel];
+//    SEL selector = sel_registerName("_typeString");
+//    const char *typeEncoding = ((NSString *(*)(id, SEL))[signature methodForSelector:selector])(signature,selector).UTF8String;
+    
+    Method instanceMethod = class_getInstanceMethod(objc_getClass(NSStringFromClass(cls).UTF8String), sel);
+    if (instanceMethod) {
+        return [NSString stringWithUTF8String:method_getTypeEncoding(instanceMethod)];
+    }
+    return nil;
+    
+//    NSPropertyListSerialization;
+}
+
+
+void hy_swizzleDealloc(id instance, void(^block)(id _instance)) {
+    hy_swizzleAndResetInstanceMethodToBlock([instance class], sel_registerName("dealloc"), ^id(SEL sel, IMP (^impBlock)(void), void (^resetImpBlock)(void)) {
+        return block ?: ^(id _self){resetImpBlock();};
+    });
+}
+
 
